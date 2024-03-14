@@ -36,21 +36,25 @@ const arrFaq = [
 ];
 
 function createMarkup({ question, answer }) {
-  return `<li class="faq-item" data-accordion-item>
-    <div class="faq-question-wrapper" data-accordion-trigger>
-      <h3 class="faq-question">${question}</h3>
-      <button class="faq-arrow-btn" type="button">
-        <svg  class="icon-arrow" width="20" height="20">
-          <use href="./images/icons.svg#icon-arrow"></use>
+  return `<li class="faq-item">
+<div class="ac">
+    <div class="ac-wrapper">
+      <h3 class="ac-header">${question}</h3>
+      <button class="ac-trigger" type="button">
+        <svg class="icon-arrow" width="20" height="20">
+          <use href="#icon-arrow-"></use>
         </svg>
       </button>
     </div>
-    <p class="faq-answer" data-accordion-content>${answer}</p>
+    <div class="ac-panel">
+      <p class="ac-text">${answer}</p>
+    </div>
+  </div>
   </li>`;
 }
 
 function renderFAQ() {
-  const faqList = document.querySelector('.faq-list');
+  const faqList = document.querySelector('.accordion-container');
   const faqMarkup = arrFaq.map(createMarkup).join('');
 
   faqList.innerHTML = faqMarkup;
@@ -58,4 +62,31 @@ function renderFAQ() {
 
 renderFAQ();
 
-const accordion = new Accordion('.faq-list');
+const acTriggers = document.querySelectorAll('.ac-trigger');
+
+const triggers = document.querySelectorAll('.ac-trigger');
+
+triggers.forEach(trigger => {
+  trigger.addEventListener('click', event => {
+    const iconArrow = event.currentTarget.querySelector('.icon-arrow');
+
+    iconArrow.classList.toggle('icon-arrow-up');
+
+    if (iconArrow.classList.contains('icon-arrow-up')) {
+      iconArrow.querySelector('use').href.baseVal = '#icon-arrow-up';
+    } else {
+      iconArrow.querySelector('use').href.baseVal = '#icon-arrow-down';
+    }
+
+    acTriggers.forEach(trigger => {
+      trigger.addEventListener('click', event => {
+        const acPanel = event.currentTarget
+          .closest('.ac')
+          .querySelector('.ac-panel');
+        acPanel.classList.toggle('is-active');
+      });
+    });
+  });
+});
+
+const accordion = new Accordion('.accordion-container');
