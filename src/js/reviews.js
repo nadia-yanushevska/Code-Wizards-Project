@@ -25,7 +25,7 @@ async function renderReviewsCard() {
   reviewsData.forEach(data => {
     markup += `<div class="swiper-slide">
     <div class="author">
-        <img src=${data.avatar_url} alt="Avatar" class="avatar">
+        <img src=${data.avatar_url} alt="Avatar" class="avatar" width="48" height="48">
         <h3 class="name">${data.author}</h3>
     </div>
     <p class="review-text">
@@ -39,6 +39,7 @@ renderReviewsCard();
 
 const swiper = new Swiper('.mySwiper', {
   slidesPerView: 1,
+  spaceBetween: 16,
   breakpoints: {
     768: {
       slidesPerView: 2,
