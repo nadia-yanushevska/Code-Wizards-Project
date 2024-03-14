@@ -1,64 +1,40 @@
-// import axios from 'axios';
+import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const END_POINT = "/requests";
-const BASE_URL = 'https://portfolio-js.b.goit.study/api'
 
-// axios.defaults.baseURL = 'https://portfolio-js.b.goit.study/api';
+
+axios.defaults.baseURL = 'https://portfolio-js.b.goit.study/api';
 
 const form = document.querySelector('.footer-work-form');
 
 form.addEventListener("submit", onFormSubmit)
 
-// async function addMessage(message) {
-//     return await axios.post(`${END_POINT}`, message);
-// }
-function addMessage(message) {
-  return fetch(`${BASE_URL}${END_POINT}`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(message),
-  }).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  });
+async function addMessage(message) {
+    return await axios.post(`${END_POINT}`, message);
 }
 
 async function onFormSubmit(e) {
     e.preventDefault()
     const email = e.currentTarget.elements.email.value;
-    const message = e.currentTarget.elements.message.value;
-    if (!email || !message) {
+    const comment = e.currentTarget.elements.message.value;
+    if (!email || !comment) {
        showMessage(emptyMsg)
         return;
     }
-    const userMsg = { email, message }
+    const userMsg = { email, comment }
 
-    addMessage(userMsg)
-    .then((res) => {
-        console.log(res);
+    try {
+        const res = await addMessage(userMsg)
+    
+        // Тут в res приходить {title, message} яке потрібне в модальне вікно вставити
+        console.log(res); 
         e.target.reset()
-        
-    })
-        .catch((err) => {
-            console.log(err)
-            showMessage(wrongData)
-
-        })
-
-
-    // try {
-    //     await addMessage(userMsg)
-    //     e.target.reset()
-    // } catch (error) {
-    //     console.log(error);
-    //  showMessage(wrongData)
-    // }
+    } catch (error) {
+        console.log(error);
+     showMessage(wrongData)
+    }
     
 }
 
