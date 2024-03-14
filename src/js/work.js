@@ -17,8 +17,8 @@ async function addMessage(message) {
 
 async function onFormSubmit(e) {
     e.preventDefault()
-    const email = e.currentTarget.elements.email.value;
-    const comment = e.currentTarget.elements.message.value;
+    const email = e.currentTarget.elements.email.value.trim();
+    const comment = e.currentTarget.elements.message.value.trim();
     if (!email || !comment) {
        showMessage(emptyMsg)
         return;
