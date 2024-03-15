@@ -45,18 +45,6 @@ async function renderReviews() {
     console.error(error);
   }
 }
-// renderReviews();
-// new Swiper('.swiper-container', {
-//   slidesPerView: 1,
-//   breakpoints: {
-//     768: {
-//       slidesPerView: 2,
-//     },
-//     768: {
-//       slidesPerView: 3,
-//     },
-//   },
-// });
 
 async function initSwiper() {
   await renderReviews();
@@ -75,6 +63,10 @@ async function initSwiper() {
       1440: {
         slidesPerView: 3,
       },
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: false,
     },
   });
 }
