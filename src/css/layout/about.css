@@ -1,16 +1,65 @@
- .hidden-title {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+.hidden-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-/* .accordion-btn */
+.text-content {
+  text-transform: uppercase;
+}
 
-/* .accordion-content */
+.span-red {
+  color: #ed3b44;
+}
+
+.span-grey {
+  color: rgba(250, 250, 250, 0.4);
+}
+
+.accordion-title {
+  position: relative;
+  text-transform: uppercase;
+  color: rgba(250, 250, 250, 0.4);
+  padding: 8px 24px;
+    width: 165px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: inherit;
+    border-style: none none solid none;
+    font-weight: 600;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.02em;
+text-transform: uppercase;
+}
+
+.arrow-up {
+    width: 5px;
+    height: 10px;
+    text-align: center;
+    transform: translate(0, -50%);
+    position: absolute;
+    right: 10px;
+}
+
+.accordion-content {
+  display: none;
+}
+
+.accordion-content.active {
+  display: block;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+    background-color: inherit;
+}

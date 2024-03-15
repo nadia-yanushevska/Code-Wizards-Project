@@ -1,5 +1,7 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
+import Swiper from 'swiper/bundle';
+import 'swiper/css/bundle';
 
 const accordionData = [
   {
@@ -28,6 +30,17 @@ const accordionData = [
   },
 ];
 
+const slidesData = [
+  'HTML/CSS',
+  'JavaScript',
+  'React',
+  'Node.js',
+  'React Native',
+  'Soft skills',
+];
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const accordionContainer = document.querySelector('.accordion');
   let activeIndex = 0;
@@ -48,13 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     addItemToContainer(accordionContainer, accordionBtn, accordionContent);
 
-    // Розкриваємо перший елемент за замовчуванням
     if (index === activeIndex) {
       accordionContent.classList.add('active');
     }
   });
 
-  // Виклик Accordion для створення акордеону
   const myAccordion = new Accordion('.accordion', {
     duration: 400,
     closeOthers: true,
@@ -63,8 +74,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function createBtn(title) {
   const accordionBtn = document.createElement('button');
-  accordionBtn.classList.add('accordion-btn');
-  accordionBtn.textContent = title;
+  accordionBtn.classList.add('accordion-title');
+
+  const titleSpan = document.createElement('span');
+  titleSpan.textContent = title;
+  accordionBtn.appendChild(titleSpan);
+
+  const svgSpan = document.createElement('span');
+  svgSpan.classList.add('arrow-up');
+  svgSpan.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" fill="none"><path stroke="#FAFAFA" stroke-width="2" d="M10.5 6.25 6 1.75l-4.5 4.5"/></svg>
+  `;
+
+  accordionBtn.appendChild(svgSpan);
+  svgSpan.addEventListener('click', () => {
+    svgSpan.style.transform = 'rotate(180deg)';
+  });
   return accordionBtn;
 }
 
@@ -87,3 +112,41 @@ function addItemToContainer(container, btn, content) {
   container.appendChild(btn);
   container.appendChild(content);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const swiperWrapper = document.querySelector('.swiper-wrapper');
+  slidesData.forEach(slide => {
+    const slideElement = document.createElement('div');
+    slideElement.classList.add('swiper-slide');
+    slideElement.textContent = slide;
+    swiperWrapper.appendChild(slideElement);
+  });
+
+  const swiperContainer = document.querySelector('.swiper');
+  const prevButton = document.createElement('button');
+  const nextButton = document.createElement('button');
+
+  prevButton.classList.add('swiper-button-prev');
+  nextButton.classList.add('swiper-button-next');
+
+  swiperContainer.appendChild(prevButton);
+  swiperContainer.appendChild(nextButton);
+
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
+    loop: true,
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    keyboard: {
+      enabled: true,
+    },
+
+    mousewheel: true,
+
+    touch: true,
+  });
+});
