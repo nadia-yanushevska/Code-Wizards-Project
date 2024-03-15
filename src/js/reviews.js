@@ -1,80 +1,92 @@
-import Axios from 'axios';
+import axios from 'axios';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
 
 const listEl = document.querySelector('.reviews-list');
-const prevButton = document.querySelector('.swiper-button-prev');
-const nextButton = document.querySelector('.swiper-button-next');
-
-const axios = Axios.create({
-  baseURL: 'https://portfolio-js.b.goit.study/api/reviews',
-});
 
 async function getReviewsData() {
   try {
-    const res = await axios.get();
-    return res.data;
+    const response = await axios.get(
+      'https://portfolio-js.b.goit.study/api/reviews'
+    );
+    return response.data;
   } catch (error) {
-    console.error('Error fetching reviews:', error);
-    return [];
+    console.error(error);
+    return null;
   }
 }
 
-async function renderReviewsCard() {
+async function renderReviews() {
   try {
     const reviewsData = await getReviewsData();
-    if (reviewsData.length === 0) {
+    if (!reviewsData) {
       listEl.innerHTML = '<li>Not Found</li>';
       return;
     }
-    let markup = '';
-    reviewsData.forEach(data => {
-      markup += `<li><div class="swiper-slide">
-          <div class="author">
-            <img src="${data.avatar_url}" alt="Avatar" class="avatar" width="48" height="48">
-            <h3 class="name">${data.author}</h3>
-          </div>
-          <p class="review-text">${data.review}</p>
-        </div></li>`;
-    });
-    listEl.innerHTML = markup;
+    const reviewsList = reviewsData
+      .map(
+        review => `
+      <li class="swiper-slide">
+        <div class="author">
+          <img src="${review.avatar_url}" alt="Avatar" class="avatar" width="48" height="48">
+          <h3 class="name">${review.author}</h3>
+        </div>
+        <p class="review-text">${review.review}</p>
+      </li>
+      
+    `
+      )
+      .join('');
+    listEl.innerHTML = reviewsList;
   } catch (error) {
-    console.error('Error rendering reviews:', error);
+    console.error(error);
   }
 }
+// renderReviews();
+// new Swiper('.swiper-container', {
+//   slidesPerView: 1,
+//   breakpoints: {
+//     768: {
+//       slidesPerView: 2,
+//     },
+//     768: {
+//       slidesPerView: 3,
+//     },
+//   },
+// });
 
 async function initSwiper() {
-  await renderReviewsCard();
-  const swiper = new Swiper('.mySwiper', {
-    slidesPerView: 1,
-    spaceBetween: 16,
-    breakpoints: {
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 16,
-      },
-      1440: {
-        slidesPerView: 3,
-      },
-    },
+  await renderReviews();
+
+  let swiper = new Swiper('.mySwiper', {
+    slidesPerView: 3,
     navigation: {
-      prevEl: prevButton,
-      nextEl: nextButton,
+      prevEl: ' .mySwiper .swiper-button-prev',
+      nextEl: '.mySwiper .swiper-button-next',
     },
-    on: {
-      slideChange: function () {
-        if (swiper.isBeginning) {
-          prevButton.classList.add('swiper-button-disabled');
-        } else {
-          prevButton.classList.remove('swiper-button-disabled');
-        }
-        if (swiper.isEnd) {
-          nextButton.classList.add('swiper-button-disabled');
-        } else {
-          nextButton.classList.remove('swiper-button-disabled');
-        }
-      },
-    },
+    // breakpoints: {
+    //   768: {
+    //     slidesPerView: 2,
+    //   },
+    //   1440: {
+    //     slidesPerView: 3,
+    //   },
+    // },
+
+    // on: {
+    //   slideChange: function () {
+    //     if (swiper.isBeginning) {
+    //       prevButton.classList.add('swiper-button-disabled');
+    //     } else {
+    //       prevButton.classList.remove('swiper-button-disabled');
+    //     }
+    //     if (swiper.isEnd) {
+    //       nextButton.classList.add('swiper-button-disabled');
+    //     } else {
+    //       nextButton.classList.remove('swiper-button-disabled');
+    //     }
+    //   },
+    // },
   });
 }
 

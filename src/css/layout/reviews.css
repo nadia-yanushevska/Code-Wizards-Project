@@ -22,21 +22,14 @@
 .mySwiper {
 }
 .swiper-wrapper {
-}
-.reviews-list {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 16px;
 }
+.reviews-list {
+}
 .list-elem {
-  width: 343px;
-  height: 302px;
-  border-radius: 20px;
-  border: 1px solid rgba(250, 250, 250, 0.2);
-
-  display: flex;
-  padding: 32px 24px;
-  flex-direction: column;
-  align-items: flex-start;
 }
 .avatar {
   margin-bottom: 32px;
@@ -44,7 +37,6 @@
 }
 .name {
   color: #fafafa;
-  font-family: 'Inter Tight';
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -55,8 +47,6 @@
 }
 .review-text {
   color: rgba(250, 250, 250, 0.6);
-
-  font-family: 'Inter Tight';
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
