@@ -1,0 +1,162 @@
+/* SECTION-HERO-STYLES */
+.section-hero {
+  width: 100%;
+  background: linear-gradient(
+    to left,
+    #1c1d20 49.69%,
+    #69292d 67.71%,
+    #ed3b44 99.91%
+  );
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container-hero {
+  padding: 0 16px 32px 16px;
+  min-width: 320px;
+}
+
+.container-main-text {
+  padding-top: 281px;
+  padding-bottom: 212px;
+}
+
+.main-text {
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+
+.container-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.ul-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.link {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--white-color);
+
+  width: 37px;
+  height: 37px;
+  display: flex;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  border: 1px solid rgba(250, 250, 250, 0.2);
+}
+
+.link-address {
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: -0.02em;
+  color: var(--white-color);
+
+  width: 130px;
+  height: 37px;
+  display: flex;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  border: 1px solid rgba(250, 250, 250, 0.2);
+}
+
+/* .overlay-hero {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+  gap: -5px;
+  flex-shrink: 0;
+} */
+
+/* MOBILE */
+@media screen and (min-width: 375px) {
+  .container-hero {
+    padding: 0 16px 32px 16px;
+  }
+
+  .link-address {
+    font-size: 14px;
+    width: 178px;
+  }
+}
+
+/* END-MOBILE */
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+  .container-hero {
+    padding: 0 32px 32px 32px;
+  }
+
+  .container-main-text {
+    padding-top: 300px;
+    padding-bottom: 187px;
+    margin-right: 104px;
+  }
+
+  .main-text {
+    font-size: 90px;
+  }
+
+  .container-link {
+    padding-left: 229px;
+  }
+
+  .ul-link {
+    gap: 8px;
+  }
+
+  .link {
+    font-size: 16px;
+    padding: 18px 16px;
+    width: 55px;
+    height: 55px;
+  }
+
+  .link-address {
+    font-size: 16px;
+
+    width: 223px;
+    height: 55px;
+    padding: 18px 16px;
+  }
+}
+
+/* END-TABLET */
+
+/* DESKTOP */
+@media screen and (min-width: 1440px) {
+  .container-main-text {
+    padding-top: 300px;
+    padding-bottom: 243px;
+    margin-left: 146px;
+  }
+
+  .container-link {
+    padding-left: 901px;
+  }
+
+  .link {
+    padding: 18px 20px;
+  }
+
+  .link-address {
+    padding: 18px 20px;
+  }
+}
+
+/* END-DESKTOP */
