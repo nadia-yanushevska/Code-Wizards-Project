@@ -1,6 +1,5 @@
  .section-benefits {
-     padding-top: 32px;
-     padding-bottom: 32px;
+     padding-bottom: 64px;
  }
 
  .container-benefits {
@@ -56,6 +55,27 @@
  .text-benefits {
      color: #FAFAFA99;
 
+
+ }
+
+ .wrap-link-benefits {
+     display: none;
+     margin-top: 20px;
+ }
+
+ .item-benefits:hover .wrap-link-benefits,
+ .item-benefits:focus .wrap-link-benefits {
+     display: block;
+
+ }
+
+
+
+ .link-benefits {
+     color: #3c49ec;
+     display: flex;
+     align-items: center;
+     gap: 8px;
  }
 
  .btn-benefits {
@@ -84,8 +104,7 @@
 
  @media screen and (min-width: 768px) {
      .section-benefits {
-         padding-top: 48px;
-         padding-bottom: 48px;
+         padding-bottom: 96px;
      }
 
      .container-benefits {
@@ -106,8 +125,7 @@
  /* =========== DESKTOP SECTION BENEFITS======= */
  @media screen and (min-width: 1440px) {
      .section-benefits {
-         padding-top: 82px;
-         padding-bottom: 82px;
+         padding-bottom: 120px;
      }
 
      .container-benefits {
