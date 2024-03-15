@@ -61,13 +61,18 @@ async function initSwiper() {
         slidesPerView: 2,
       },
       1440: {
-        slidesPerView: 3,
+        slidesPerView: 4,
       },
     },
+    mousewheel: {
+      loop: false,
+    },
+
     keyboard: {
       enabled: true,
       onlyInViewport: false,
     },
+    loop: false,
   });
 }
 
