@@ -41,8 +41,11 @@ function createMarkup({ question, answer }) {
     <div class="ac-wrapper">
       <h3 class="ac-header">${question}</h3>
       <button class="ac-trigger" type="button">
-        <svg class="icon-arrow" width="20" height="20">
-          <use href="#icon-arrow-"></use>
+        <svg class="icon-arrow-down" width="20" height="20">
+          <use href="./img/sprite.svg#icon-arrow-down"></use>
+        </svg>
+        <svg class="icon-arrow-up" width="20" height="20">
+          <use href="./img/sprite.svg#icon-arrow-up"></use>
         </svg>
       </button>
     </div>
@@ -64,28 +67,22 @@ renderFAQ();
 
 const acTriggers = document.querySelectorAll('.ac-trigger');
 
-const triggers = document.querySelectorAll('.ac-trigger');
-
-triggers.forEach(trigger => {
+acTriggers.forEach(trigger => {
   trigger.addEventListener('click', event => {
-    const iconArrow = event.currentTarget.querySelector('.icon-arrow');
+    const iconArrowDown = event.currentTarget.querySelector('.icon-arrow-down');
+    const iconArrowUp = event.currentTarget.querySelector('.icon-arrow-up');
+    const acPanel = event.currentTarget
+      .closest('.ac')
+      .querySelector('.ac-panel');
 
-    iconArrow.classList.toggle('icon-arrow-up');
-
-    if (iconArrow.classList.contains('icon-arrow-up')) {
-      iconArrow.querySelector('use').href.baseVal = '#icon-arrow-up';
+    if (acPanel.classList.contains('is-active')) {
+      iconArrowDown.style.display = 'block';
+      iconArrowUp.style.display = 'none';
     } else {
-      iconArrow.querySelector('use').href.baseVal = '#icon-arrow-down';
+      iconArrowDown.style.display = 'none';
+      iconArrowUp.style.display = 'block';
     }
-
-    acTriggers.forEach(trigger => {
-      trigger.addEventListener('click', event => {
-        const acPanel = event.currentTarget
-          .closest('.ac')
-          .querySelector('.ac-panel');
-        acPanel.classList.toggle('is-active');
-      });
-    });
+    acPanel.classList.toggle('is-active');
   });
 });
 
