@@ -1,6 +1,9 @@
 import axios from 'axios';
 import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const listEl = document.querySelector('.reviews-list');
 
@@ -59,34 +62,20 @@ async function initSwiper() {
   await renderReviews();
 
   let swiper = new Swiper('.mySwiper', {
-    slidesPerView: 3,
+    slidesPerView: 1,
+    modules: [Navigation, Pagination],
     navigation: {
       prevEl: ' .mySwiper .swiper-button-prev',
       nextEl: '.mySwiper .swiper-button-next',
     },
-    // breakpoints: {
-    //   768: {
-    //     slidesPerView: 2,
-    //   },
-    //   1440: {
-    //     slidesPerView: 3,
-    //   },
-    // },
-
-    // on: {
-    //   slideChange: function () {
-    //     if (swiper.isBeginning) {
-    //       prevButton.classList.add('swiper-button-disabled');
-    //     } else {
-    //       prevButton.classList.remove('swiper-button-disabled');
-    //     }
-    //     if (swiper.isEnd) {
-    //       nextButton.classList.add('swiper-button-disabled');
-    //     } else {
-    //       nextButton.classList.remove('swiper-button-disabled');
-    //     }
-    //   },
-    // },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+      },
+      1440: {
+        slidesPerView: 3,
+      },
+    },
   });
 }
 
