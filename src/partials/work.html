@@ -12,15 +12,20 @@
           class="footer-email-input"
           type="email"
           name="email"
+          id="email"
           placeholder="clients@gmail.com"
+          required
         />
-        <!-- pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" -->
+
         <input
           class="footer-comment-input"
           type="text"
           name="message"
+          id="comment"
           placeholder="comments"
         />
+        <!-- pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" -->
+        <!-- pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" -->
         <button class="footer-send-btn" type="submit">Send</button>
       </form>
       <address>
