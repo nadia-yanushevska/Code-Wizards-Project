@@ -185,3 +185,12 @@
     gap: 8px;
   }
 }
+
+.footer-comment-input:not(:placeholder-shown):invalid,
+.footer-email-input:not(:placeholder-shown):invalid {
+  border-color: #ea4335;
+}
+.footer-comment-input:not(:placeholder-shown):valid,
+.footer-email-input:not(:placeholder-shown):valid {
+  border-color: green;
+}
