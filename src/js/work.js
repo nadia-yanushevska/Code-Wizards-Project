@@ -28,7 +28,7 @@ async function onFormSubmit(e) {
     try {
         const res = await addMessage(userMsg)
     
-        // Тут в res приходить {title, message} яке потрібне в модальне вікно вставити
+        // Тут в res.data приходить  {title, message} яке потрібне в модальне вікно вставити
         console.log(res); 
         e.target.reset()
     } catch (error) {
