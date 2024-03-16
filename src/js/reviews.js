@@ -51,6 +51,7 @@ async function initSwiper() {
 
   let swiper = new Swiper('.mySwiper', {
     slidesPerView: 1,
+    spaceBetween: 16,
     modules: [Navigation, Pagination],
     navigation: {
       prevEl: ' .mySwiper .swiper-button-prev',
