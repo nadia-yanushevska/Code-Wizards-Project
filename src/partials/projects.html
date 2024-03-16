@@ -1,17 +1,30 @@
-<link rel="stylesheet" href="../css/layout/projects.css" />
 <section class="projects">
   <h2 class="projects-title">Projects</h2>
   <ul class="projects-list">
-    <li class="projects-item">
-      <span class="my-skills">#react</span>
-      <span class="my-skills">#js</span>
-      <span class="my-skills">#node js</span>
-      <span class="my-skills">#git</span>
-      <p class="projects-text">
-        Programming Across Borders: Ideas, Technologies, Innovations
-      </p>
-      <button type="button">See project</button>
-      <img src="../" alt="" />
-    </li>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <span class="my-skills">#react</span>
+          <span class="my-skills">#js</span>
+          <span class="my-skills">#node js</span>
+          <span class="my-skills">#git</span>
+          <p class="projects-text">
+            Programming Across Borders: Ideas, Technologies, Innovations
+          </p>
+          <button type="button" class="project-button">See project</button>
+          <div class="projects-img">
+            <img src="../" alt="" />
+          </div>
+        </div>
+        <div class="swiper-slide"></div>
+        <div class="swiper-slide"></div>
+      </div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
   </ul>
 </section>
