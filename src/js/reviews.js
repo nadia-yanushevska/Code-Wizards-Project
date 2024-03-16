@@ -29,14 +29,14 @@ async function renderReviews() {
     const reviewsList = reviewsData
       .map(
         review => `
+        
       <li class="swiper-slide">
         <div class="author">
           <img src="${review.avatar_url}" alt="Avatar" class="avatar" width="48" height="48">
+          <div class = "reviews-data">
           <h3 class="name">${review.author}</h3>
-        </div>
-        <p class="review-text">${review.review}</p>
+        <p class="review-text">${review.review}</p></div></div>
       </li>
-      
     `
       )
       .join('');
