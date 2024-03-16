@@ -99,6 +99,8 @@
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(250, 250, 250, 0.2);
   margin-bottom: 16px;
+  position: relative;
+
   transition: all ease-in 300ms;
 }
 
@@ -208,15 +210,15 @@
   border-color: green;
 }
 
-/* .email-label {
-  margin-bottom: 16px;
+.email-label {
+  position: relative;
 }
 
 .footer-email-input:valid ~ .success {
-  display: block;
+  opacity: 100;
 }
 .footer-email-input:not(:placeholder-shown):invalid ~ .error-data {
-  display: block;
+  opacity: 100;
 }
 
 .success {
@@ -227,8 +229,11 @@
   font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.28px;
-  display: none;
+  opacity: 0;
   transition: all ease-in 300ms;
+  position: absolute;
+  left: 0;
+  top: 44px;
 }
 
 .error-data {
@@ -237,8 +242,11 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; 
+  line-height: 18px;
   letter-spacing: -0.28px;
-  display: none;
+  opacity: 0;
   transition: all ease-in 300ms;
-} */
+  position: absolute;
+  left: 0;
+  top: 44px;
+}
