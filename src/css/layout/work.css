@@ -16,6 +16,18 @@
 
 .footer-header-container {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 63px;
+}
+.footer-header-block {
+  display: inline-flex;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-header-container {
+    margin-bottom: 18px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -46,14 +58,13 @@
   line-height: 1;
   letter-spacing: -0.03em;
   text-transform: uppercase;
-  margin-bottom: 63px;
   font-style: normal;
 }
 
 @media screen and (min-width: 768px) {
   .footer-header {
     font-size: 64px;
-    margin-bottom: 18px;
+    /* margin-bottom: 18px; */
   }
 }
 
@@ -72,6 +83,7 @@
     flex-direction: row;
     column-gap: 32px;
     align-items: center;
+
     margin-bottom: 18px;
   }
 }
@@ -87,6 +99,8 @@
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(250, 250, 250, 0.2);
   margin-bottom: 16px;
+  position: relative;
+
   transition: all ease-in 300ms;
 }
 
@@ -190,7 +204,49 @@
 .footer-email-input:not(:placeholder-shown):invalid {
   border-color: #ea4335;
 }
+
 .footer-comment-input:not(:placeholder-shown):valid,
 .footer-email-input:not(:placeholder-shown):valid {
   border-color: green;
+}
+
+.email-label {
+  position: relative;
+}
+
+.footer-email-input:valid ~ .success {
+  opacity: 100;
+}
+.footer-email-input:not(:placeholder-shown):invalid ~ .error-data {
+  opacity: 100;
+}
+
+.success {
+  color: #3cbc81;
+  font-family: 'Inter Tight';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+  opacity: 0;
+  transition: all ease-in 300ms;
+  position: absolute;
+  left: 0;
+  top: 44px;
+}
+
+.error-data {
+  color: #e74a3b;
+  font-family: 'Inter Tight';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+  opacity: 0;
+  transition: all ease-in 300ms;
+  position: absolute;
+  left: 0;
+  top: 44px;
 }

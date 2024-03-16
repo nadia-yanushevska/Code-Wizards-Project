@@ -12,6 +12,19 @@ body {
   z-index: 10;
 }
 
+.header-background {
+  background-image: url('../../img/hero/Glass-effect-mobile.png');
+  background-size: cover;
+}
+
+@media screen and (min-resolution: 192dpi) and (max-width: 767.98px),
+  screen and (min-device-pixel-ratio: 2),
+  screen and (min-resolution: 2ddpx) {
+  .header-background {
+    background-image: url('../../img/hero/Glass-effect-mobile@2x.png');
+  }
+}
+
 .container {
   padding: 32px 16px;
   position: relative;
@@ -173,6 +186,10 @@ body {
 
 .modal-container {
   padding-top: 8px;
+}
+
+.scroll-block {
+  overflow: hidden;
 }
 
 /* for hero section */
