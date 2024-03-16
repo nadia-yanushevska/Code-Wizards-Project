@@ -1,0 +1,48 @@
+@media only screen and (min-width: 320px) {
+    .section-covers {
+        background-image: linear-gradient(var(--black-color), var(--red-color));
+        background-repeat: repeat;
+        overflow: hidden;
+        height: 960px;
+
+    }
+    .content {
+    position: relative;
+} 
+    .marquee__inner {
+    display: flex;
+    transform: rotate(16deg);
+    position: relative;
+    top: -200px;
+}
+
+    .marquee__line {
+    flex-shrink: 0;
+    margin-right: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    animation-name: marqueeLine;
+    animation-duration: 7s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+    @keyframes marqueeLine {
+    from {
+        transform: translateX(-20%);
+    }
+
+    to {
+        transform: translateX(-180%);
+    }
+} 
+    .img-covers {
+    min-width: 544px;
+    height: 314px;
+}
+}
+
+
+
+
