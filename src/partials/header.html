@@ -1,1 +1,63 @@
-<header class="header"></header>
+<header class="header" js-elem="header">
+  <div class="container header-container" js-elem="header-container">
+    <div class="logo" js-elem="logo">
+      <img
+        class="logo-img"
+        src="./img/jefferson.png"
+        alt="jefferson logo"
+        width="80"
+        height="80"
+      />
+      <p class="lodo-text">jefferson*</p>
+    </div>
+
+    <button
+      type="button"
+      href="#"
+      class="menu-link underline menu-heading"
+      js-elem="menu-btn"
+    >
+      Menu
+    </button>
+
+    <nav class="nav-container is-hidden" js-elem="nav">
+      <ul class="dropdown-menu is-hidden" js-elem="modal-links">
+        <li class="dropdown-menu-item">
+          <a class="menu-link" href="#about">About me</a>
+        </li>
+        <li class="dropdown-menu-item">
+          <a class="menu-link" href="#benefits">Benefits</a>
+        </li>
+        <li class="dropdown-menu-item">
+          <a class="menu-link" href="#projects">Projects</a>
+        </li>
+        <li class="dropdown-menu-item">
+          <a class="menu-link" href="#faq">FAQ</a>
+        </li>
+      </ul>
+      <a class="order-link" href="#order">Order the project</a>
+    </nav>
+
+    <button
+      class="menu-modal-btn open-modal"
+      type="button"
+      aria-label="Open menu button"
+      js-elem="open-btn"
+    >
+      <svg class="menu-modal-svg" height="28" width="28">
+        <use href="./img/sprite.svg#icon-burger-menu"></use>
+      </svg>
+    </button>
+
+    <button
+      class="menu-modal-btn close-modal is-hidden"
+      type="button"
+      aria-label="Close menu button"
+      js-elem="close-btn"
+    >
+      <svg class="menu-modal-svg" height="28" width="28">
+        <use href="./img/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+  </div>
+</header>
