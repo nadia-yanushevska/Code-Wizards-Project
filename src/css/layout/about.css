@@ -11,6 +11,42 @@
   overflow: hidden;
 }
 
+.about-jefferson {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 64px;
+    margin-top: 64px;
+    background: #242527;
+}
+
+.jefferson.container {
+  margin-bottom: 64px;
+  margin-top: 64px;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
+@media only screen and (min-width: 768px) {
+  .about-wrapper {
+      margin-bottom: 64px;
+  }
+}
+
+
+@media only screen and (min-width: 1140px) {
+  .about-wrapper {
+      margin-bottom: 96px;
+  }
+}
+
 .text-content {
   text-transform: uppercase;
 }
@@ -59,29 +95,26 @@
   background-color: inherit;
 }
 
-
 .swiper-slide-transform {
-border: 2px solid rgba(250, 250, 250, 0.2);
-border-radius: 100%;
-stroke-width: 1px;
-width: 200px;
-height: 200px;
-font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
-letter-spacing: -0.02em;
-color: #fafafa;
-display: flex; 
+  border: 2px solid rgba(250, 250, 250, 0.2);
+  border-radius: 100%;
+  stroke-width: 1px;
+  width: 200px;
+  height: 200px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
-
 
 .swiper-slide-transform.active {
   background-color: #ed3b44;
 }
 
-
-  .swiper-wrapper .swiper-slide   {
-    border: none;
-   }
+.swiper-slide {
+  border-color: transparent !important;
+}

@@ -97,7 +97,9 @@ function createAccordionContent(content) {
   return accordionContent;
 }
 
-const accordionContainer = document.querySelector('.tailwind-accordion-container');
+const accordionContainer = document.querySelector(
+  '.tailwind-accordion-container'
+);
 
 accordionData.forEach(item => {
   const accordionItem = createAccordionItem(item);
@@ -122,17 +124,52 @@ new Accordion('.tailwind-accordion-container', {
   openOnInit: [0],
 });
 
+function switchSlide(direction) {
+  const activeSlide = document.querySelector('.swiper-slide-transform.active');
+  const slides = document.querySelectorAll('.swiper-slide-transform');
+  let currentIndex = -1;
+  for (let i = 0; i < slides.length; i++) {
+    if (slides[i] === activeSlide) {
+      currentIndex = i;
+      break;
+    }
+  }
+
+  let newIndex;
+  if (direction === 'next') {
+    newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
+  } else if (direction === 'prev') {
+    newIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+  }
+
+  activeSlide.classList.remove('active');
+  slides[newIndex].classList.add('active');
+
+  const prevButton = document.querySelector('.swiper-button-prev');
+  const nextButton = document.querySelector('.swiper-button-next');
+  if (newIndex === 0) {
+    prevButton.style.display = 'none';
+  } else {
+    prevButton.style.display = 'block';
+  }
+  if (newIndex === slides.length - 1) {
+    nextButton.style.display = 'none';
+  } else {
+    nextButton.style.display = 'block';
+  }
+}
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const swiperWrapper = document.querySelector('.swiper-wrapper');
-  slidesData.forEach((slide, index) => { 
+  slidesData.forEach((slide, index) => {
     const slideElement = document.createElement('div');
     slideElement.classList.add('swiper-slide');
 
     const slideTransformElement = document.createElement('div');
     slideTransformElement.classList.add('swiper-slide-transform');
 
-    if (index === 0) { 
+    if (index === 0) {
       slideTransformElement.classList.add('active');
     }
 
@@ -147,59 +184,23 @@ document.addEventListener('DOMContentLoaded', function () {
   const nextButton = document.createElement('button');
 
   prevButton.classList.add('swiper-button-prev');
+  prevButton.style.display = 'none';
   nextButton.classList.add('swiper-button-next');
 
   swiperContainer.appendChild(prevButton);
   swiperContainer.appendChild(nextButton);
 
   prevButton.addEventListener('click', function () {
-    const activeSlide = document.querySelector('.swiper-slide-transform.active');
-    const slides = document.querySelectorAll('.swiper-slide-transform');
-    let currentIndex = -1;
-    for (let i = 0; i < slides.length; i++) {
-      if (slides[i] === activeSlide) {
-        currentIndex = i;
-        break;
-      }
-    }
-    const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-    activeSlide.classList.remove('active');
-    slides[newIndex].classList.add('active');
+    switchSlide('prev');
   });
 
   nextButton.addEventListener('click', function () {
-    const activeSlide = document.querySelector('.swiper-slide-transform.active');
-    const slides = document.querySelectorAll('.swiper-slide-transform');
-    let currentIndex = -1;
-    for (let i = 0; i < slides.length; i++) {
-      if (slides[i] === activeSlide) {
-        currentIndex = i;
-        break;
-      }
-    }
-    const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-    activeSlide.classList.remove('active');
-    slides[newIndex].classList.add('active');
+    switchSlide('next');
   });
 
   const swiper = new Swiper('.swiper', {
     direction: 'horizontal',
-    slidesPerView: 3,
- 
-     // breakpoints: {
-    //   // when window width is >= 320px
-    //   320: {
-    //     slidesPerView: 1,
-    //   },
-    //   // when window width is >= 480px
-    //   480: {
-    //     slidesPerView: 3,
-    //   },
-    //   // when window width is >= 640px
-    //   640: {
-    //     slidesPerView: 6,
-    //   }
-    // }
+    slidesPerView: 1,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -211,5 +212,3 @@ document.addEventListener('DOMContentLoaded', function () {
     touch: true,
   });
 });
-
-
