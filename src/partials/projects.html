@@ -1,30 +1,54 @@
 <section class="projects">
   <h2 class="projects-title">Projects</h2>
-  <ul class="projects-list">
-    <!-- Slider main container -->
-    <div class="swiper">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">
-          <span class="my-skills">#react</span>
-          <span class="my-skills">#js</span>
-          <span class="my-skills">#node js</span>
-          <span class="my-skills">#git</span>
-          <p class="projects-text">
-            Programming Across Borders: Ideas, Technologies, Innovations
-          </p>
-          <button type="button" class="project-button">See project</button>
-          <div class="projects-img">
-            <img src="../" alt="" />
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="box">
+          <div class="white-background">
+            <ul class="my-skills-container">
+              <li class="my-skills">#react</li>
+              <li class="my-skills">#js</li>
+              <li class="my-skills">#node js</li>
+              <li class="my-skills">#git</li>
+            </ul>
+            <p class="projects-text">
+              Programming Across Borders: Ideas, Technologies, Innovations
+            </p>
+            <a href="https://github.com" target="_blank" class="project-button"
+              >See project</a
+            >
+          </div>
+          <div class="black-background">
+            <picture>
+              <source
+                media="(min-width: 320px)"
+                srcset="
+                  ../img/project/registration-mob@1x.png 1x,
+                  ../img/project/registration-mob@2x.png 2x
+                "
+              />
+              <source
+                media="(min-width: 768px)"
+                srcset="
+                  ../img/project/registration@1x.png 1x,
+                  ../img/project/registration@2x.png 2x
+                "
+              />
+              <img
+                src="../img/project/registration-mob@1x.png"
+                alt="registration"
+              />
+            </picture>
           </div>
         </div>
-        <div class="swiper-slide"></div>
-        <div class="swiper-slide"></div>
       </div>
-      <!-- If we need navigation buttons -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
     </div>
-  </ul>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev">
+      <svg width="52px" height="52px">
+        <use href="./img/sprite.svg#icon-arrow-left"></use>
+      </svg>
+    </div>
+    <div class="swiper-button-next"></div>
+  </div>
 </section>
