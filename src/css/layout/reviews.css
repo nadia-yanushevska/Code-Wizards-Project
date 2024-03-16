@@ -1,0 +1,136 @@
+.reviews {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 64px;
+}
+.reviews-container {
+  padding: 0 16px;
+}
+.reviews-title {
+  color: rgba(250, 250, 250, 0.4);
+  font-family: 'Inter Tight';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+
+.reviews-data {
+}
+
+.list-elem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.swiper-wrapper {
+  gap: 16px;
+}
+.reviews-list {
+}
+
+.avatar {
+  margin-bottom: 32px;
+  border-radius: 10px;
+}
+.name {
+  color: #fafafa;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px; /* 150% */
+  letter-spacing: -0.025em;
+
+  margin-bottom: 8px;
+}
+.review-text {
+  color: rgba(250, 250, 250, 0.6);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.02em;
+}
+
+.reviews .swiper-button-prev,
+.reviews .swiper-button-next {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+
+  border-radius: 60px;
+  border: 1px solid rgba(250, 250, 250, 0.5);
+}
+
+.nav-btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  margin-bottom: 32px;
+  gap: 16px;
+}
+
+.swiper-wrapper .swiper-slide {
+  padding: 32px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 400px;
+  border-radius: 20px;
+  border: 1px solid rgba(250, 250, 250, 0.2);
+  height: 302px;
+}
+
+.reviews .swiper-button-next::after {
+  display: none;
+}
+
+.reviews .swiper-button-prev::after {
+  display: none;
+}
+
+.reviews .swiper-button-next {
+  width: 68px;
+  height: 68px;
+}
+.reviews .swiper-button-prev {
+  width: 68px;
+  height: 68px;
+}
+.icon-leftbtn {
+  width: 32px;
+  height: 32px;
+  fill: #fafafa;
+}
+.icon-rghtbtn {
+  width: 32px;
+  height: 32px;
+  fill: #fafafa;
+}
+@media only screen and (min-width: 768px) {
+  .swiper-slide {
+    width: calc((100% - 1 * 16px) / 1);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .reviews-list .swiper-slide {
+    width: calc((100% - 3 * 16px) / 4);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+  }
+}
