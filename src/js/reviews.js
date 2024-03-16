@@ -3,7 +3,7 @@ import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
 const listEl = document.querySelector('.reviews-list');
 
@@ -52,7 +52,7 @@ async function initSwiper() {
   let swiper = new Swiper('.mySwiper', {
     slidesPerView: 1,
     spaceBetween: 16,
-    modules: [Navigation, Pagination],
+    modules: [Navigation],
     navigation: {
       prevEl: ' .mySwiper .swiper-button-prev',
       nextEl: '.mySwiper .swiper-button-next',
