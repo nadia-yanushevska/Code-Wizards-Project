@@ -3,7 +3,7 @@
         background-image: linear-gradient(var(--black-color), var(--red-color));
         background-repeat: repeat;
         overflow: hidden;
-        height: 960px;
+        height: 508px;
 
     }
     .content {
@@ -18,14 +18,14 @@
 
     .marquee__line {
     flex-shrink: 0;
-    margin-right: 40px;
-    margin-bottom: 50px;
+    margin-right: 30px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
-    animation-name: marqueeLine;
+    /* animation-name: marqueeLine;
     animation-duration: 7s;
     animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite; */
 }
 
     @keyframes marqueeLine {
@@ -38,9 +38,31 @@
     }
 } 
     .img-covers {
-    min-width: 544px;
-    height: 314px;
+        min-width: 282px;
+        height: 162px;
+    }
 }
+
+@media only screen and (min-width: 768px){
+    .section-covers {
+        height: 960px;
+    }
+    .img-covers {
+        min-width: 544px;
+        height: 314px;
+    }
+    .marquee__line {
+        margin-right: 40px;
+        margin-bottom: 50px;
+    }
+
+}
+
+.js-marquee__line {
+    animation-name: marqueeLine;
+    animation-duration: 7s;
+    animation-timing-function:ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 
