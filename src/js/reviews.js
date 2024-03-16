@@ -30,7 +30,7 @@ async function renderReviews() {
       .map(
         review => `
         
-      <li class="swiper-slide">
+      <li class="reviews-slide swiper-slide">
         <div class="author">
           <img src="${review.avatar_url}" alt="Avatar" class="avatar" width="48" height="48">
           <div class = "reviews-data">
