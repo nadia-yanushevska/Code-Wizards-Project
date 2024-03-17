@@ -8,6 +8,8 @@ const END_POINT = "/requests";
 axios.defaults.baseURL = 'https://portfolio-js.b.goit.study/api';
 
 const form = document.querySelector('.footer-work-form');
+const modal = document.getElementById("modalContent");
+const span = document.getElementsByClassName("close")[0];
 
 form.addEventListener("submit", onFormSubmit)
 
@@ -27,7 +29,8 @@ async function onFormSubmit(e) {
 
     try {
         const res = await addMessage(userMsg)
-    
+
+        modal.style.display = "block";
         // Тут в res.data приходить  {title, message} яке потрібне в модальне вікно вставити
         console.log(res); 
         e.target.reset()
@@ -53,4 +56,12 @@ function showMessage(message) {
 const wrongData = "Oops... Something went wrong, check your info and try again!";
 const emptyMsg = "Error, the fields is empty!";
 
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
