@@ -49,32 +49,49 @@ async function renderReviews() {
 async function initSwiper() {
   await renderReviews();
 
-  let swiper = new Swiper('.mySwiper', {
+  const swiper = new Swiper('.mySwiper', {
+    direction: 'horizontal',
     slidesPerView: 1,
+    slidesPerGroup: 1,
     spaceBetween: 16,
     modules: [Navigation],
     navigation: {
       prevEl: ' .mySwiper .swiper-button-prev',
       nextEl: '.mySwiper .swiper-button-next',
     },
+
+    allowTouchMove: {
+      enable: true,
+      slidesPerGroup: 1,
+    },
     breakpoints: {
       768: {
         slidesPerView: 2,
+        slidesPerGroup: 1,
       },
       1440: {
         slidesPerView: 4,
+        slidesPerGroup: 1,
       },
     },
+    freeMode: false,
     mousewheel: {
       loop: false,
     },
+    mousewheel: {
+      enabled: true,
+      slidesPerGroup: 1,
+    },
+    touch: {
+      enable: true,
+      slidesPerGroup: 1,
+    },
 
     keyboard: {
-      enabled: true,
+      enable: true,
       onlyInViewport: false,
     },
-    loop: false,
+    edgeSwipeDetection: true,
   });
 }
-
 initSwiper();
