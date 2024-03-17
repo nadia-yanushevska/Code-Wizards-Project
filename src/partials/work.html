@@ -1,31 +1,38 @@
 <footer>
-  <section>
+  <section id="order">
     <div class="container footer-container">
       <div class="footer-header-container">
-        <img class="footer-img" src="../img/jefferson.png" alt="jefferson" />
-        <h2 class="footer-header">
-          Let`s <span class="footer-work">work</span> together
-        </h2>
+        <div class="footer-header-block">
+          <img class="footer-img" src="../img/jefferson.png" alt="jefferson" />
+          <h2 class="footer-header">
+            Let`s <span class="footer-work">work</span>
+          </h2>
+        </div>
+        <h2 class="footer-header">together</h2>
       </div>
       <form class="footer-work-form">
-        <input
-          class="footer-email-input"
-          type="email"
-          name="email"
-          id="email"
-          placeholder="clients@gmail.com"
-          required
-        />
-
-        <input
-          class="footer-comment-input"
-          type="text"
-          name="message"
-          id="comment"
-          placeholder="comments"
-        />
-        <!-- pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" -->
-        <!-- pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" -->
+        <label for="email" class="email-label">
+          <input
+            class="footer-email-input"
+            type="email"
+            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+            name="email"
+            id="email"
+            placeholder="clients@gmail.com"
+            required
+          />
+          <span class="success">Success!</span>
+          <span class="error-data">Invalid email, try again</span>
+        </label>
+        <label for="comment">
+          <input
+            class="footer-comment-input"
+            type="text"
+            name="message"
+            id="comment"
+            placeholder="comments"
+          />
+        </label>
         <button class="footer-send-btn" type="submit">Send</button>
       </form>
       <address>
@@ -40,6 +47,20 @@
           </li>
         </ul>
       </address>
+    </div>
+    <div id="modalContent" style="display: none">
+      <div class="modal-content">
+        <span class="close">
+          <svg class="close-svg" width="24" height="24">
+            <use href="../img/sprite.svg#icon-close"></use>
+          </svg>
+        </span>
+        <h2>Thank you for your interest in cooperation!</h2>
+        <p>
+          The manager will contact you shortly to discuss further details and
+          opportunities for cooperation. Please stay in touch.
+        </p>
+      </div>
     </div>
   </section>
 </footer>
