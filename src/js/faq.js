@@ -52,48 +52,71 @@ function createMarkup({ question, answer }) {
 }
 
 function renderFAQ() {
-  const faqListFirst = document.querySelector('.faq-list-first');
-  const faqListSecond = document.querySelector('.faq-list-second');
+  const faqList = document.querySelector('.faq-list');
 
-  const firstHalf = arrFaq.slice(0, 3);
-  const secondHalf = arrFaq.slice(3);
+  const halfIndex = Math.ceil(arrFaq.length / 2);
 
-  const faqMarkupFirst = firstHalf.map(createMarkup).join('');
-  const faqMarkupSecond = secondHalf.map(createMarkup).join('');
+  const firstHalf = arrFaq.slice(0, halfIndex);
+  const secondHalf = arrFaq.slice(halfIndex);
 
-  faqListFirst.innerHTML = faqMarkupFirst;
-  faqListSecond.innerHTML = faqMarkupSecond;
+  let arrToRender = arrFaq;
+
+  if (window.matchMedia('(min-width: 1280px)').matches) {
+    const arrNew = [];
+
+    firstHalf.forEach((elem, index, arr) => {
+      arrNew.push(arr[index]);
+      if (index < secondHalf.length) {
+        arrNew.push(secondHalf[index]);
+      }
+    });
+
+    arrToRender = arrNew;
+  }
+
+  const faqMarkup = arrToRender.map(createMarkup).join('');
+
+  faqList.innerHTML = faqMarkup;
+
+  initializeListeners();
 }
 
-renderFAQ();
+function initializeListeners() {
+  const faqBtn = document.querySelectorAll('.faq-btn');
+  const answerWrappers = document.querySelectorAll('.answer-wrapper');
 
-const faqBtns = document.querySelectorAll('.faq-btn');
-const answerWrappers = document.querySelectorAll('.answer-wrapper');
-
-const initialHeights = [];
-answerWrappers.forEach((wrapper, index) => {
-  initialHeights[index] = wrapper.scrollHeight;
-  wrapper.style.height = '0';
-});
-
-faqBtns.forEach((trigger, index) => {
-  trigger.addEventListener('click', event => {
-    const iconArrowDown = event.currentTarget.querySelector('.icon-arrow-down');
-    const iconArrowUp = event.currentTarget.querySelector('.icon-arrow-up');
-    const answerWrapper = event.currentTarget
-      .closest('.faq-item')
-      .querySelector('.answer-wrapper');
-
-    answerWrapper.classList.toggle('is-active');
-
-    if (answerWrapper.classList.contains('is-active')) {
-      answerWrapper.style.height = `${initialHeights[index]}px`;
-      iconArrowDown.style.display = 'none';
-      iconArrowUp.style.display = 'block';
-    } else {
-      answerWrapper.style.height = '0';
-      iconArrowDown.style.display = 'block';
-      iconArrowUp.style.display = 'none';
-    }
+  const initialHeights = [];
+  answerWrappers.forEach((wrapper, index) => {
+    initialHeights[index] = wrapper.scrollHeight;
+    wrapper.style.height = '0';
   });
-});
+
+  faqBtn.forEach((trigger, index) => {
+    trigger.addEventListener('click', event => {
+      const iconArrowDown =
+        event.currentTarget.querySelector('.icon-arrow-down');
+      const iconArrowUp = event.currentTarget.querySelector('.icon-arrow-up');
+      const answerWrapper = event.currentTarget
+        .closest('.faq-item')
+        .querySelector('.answer-wrapper');
+
+      answerWrapper.classList.toggle('is-active');
+
+      if (answerWrapper.classList.contains('is-active')) {
+        answerWrapper.style.height = `${initialHeights[index]}px`;
+        iconArrowDown.style.display = 'none';
+        iconArrowUp.style.display = 'block';
+      } else {
+        answerWrapper.style.height = '0';
+        iconArrowDown.style.display = 'block';
+        iconArrowUp.style.display = 'none';
+      }
+    });
+  });
+}
+
+initializeListeners();
+
+window.addEventListener('resize', renderFAQ);
+
+renderFAQ();
