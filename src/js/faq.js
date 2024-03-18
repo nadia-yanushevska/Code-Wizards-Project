@@ -52,17 +52,31 @@ function createMarkup({ question, answer }) {
 }
 
 function renderFAQ() {
-  const faqListFirst = document.querySelector('.faq-list-first');
-  const faqListSecond = document.querySelector('.faq-list-second');
+  const faqList = document.querySelector('.faq-list');
 
-  const firstHalf = arrFaq.slice(0, 3);
-  const secondHalf = arrFaq.slice(3);
+  const halfIndex = Math.ceil(arrFaq.length / 2);
 
-  const faqMarkupFirst = firstHalf.map(createMarkup).join('');
-  const faqMarkupSecond = secondHalf.map(createMarkup).join('');
+  const firstHalf = arrFaq.slice(0, halfIndex);
+  const secondHalf = arrFaq.slice(halfIndex);
 
-  faqListFirst.innerHTML = faqMarkupFirst;
-  faqListSecond.innerHTML = faqMarkupSecond;
+  let arrToRender = arrFaq;
+
+  if (window.matchMedia('(min-width: 1280px)').matches) {
+    const arrNew = [];
+
+    firstHalf.forEach((elem, index, arr) => {
+      arrNew.push(arr[index]);
+      if (index < secondHalf.length) {
+        arrNew.push(secondHalf[index]);
+      }
+    });
+
+    arrToRender = arrNew;
+  }
+
+  const faqMarkup = arrToRender.map(createMarkup).join('');
+
+  faqList.innerHTML = faqMarkup;
 }
 
 renderFAQ();
