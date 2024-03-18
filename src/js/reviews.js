@@ -47,36 +47,6 @@ async function renderReviews() {
   }
 }
 
-// async function initSwiper() {
-//   await renderReviews();
-
-//   let swiper = new Swiper('.mySwiper', {
-//     slidesPerView: 1,
-//     modules: [Navigation],
-//     navigation: {
-//       prevEl: ' .mySwiper .swiper-button-prev',
-//       nextEl: '.mySwiper .swiper-button-next',
-//     },
-//     breakpoints: {
-//       768: {
-//         slidesPerView: 2,
-//       },
-//       1440: {
-//         slidesPerView: 4,
-//       },
-//     },
-//     mousewheel: {
-//       loop: false,
-//     },
-
-//     keyboard: {
-//       enabled: true,
-//       onlyInViewport: false,
-//     },
-//     loop: false,
-//   });
-// }
-
 async function initSwiper() {
   await renderReviews();
   let btnPrev = document.querySelector(
