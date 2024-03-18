@@ -71,8 +71,11 @@
   line-height: 1.5;
   letter-spacing: -0.02rem;
   text-align: left;
-  display: flex;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .tailwind-ac {
@@ -107,11 +110,12 @@
 .accordion-item {
   line-height: 1.5;
   letter-spacing: -0.02em;
+  transition: none;
   color: var(--white-color);
 }
 
 .accordion-item:not(:last-child) {
-  padding-bottom: 32px;
+  padding-bottom: 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -136,6 +140,7 @@
     width: 704px;
     height: 700px;
     padding: 64px;
+    
   }
 
   .flex {
@@ -143,11 +148,12 @@
   }
 
   .tailwind-trigger {
-    padding-bottom: 16px;
+    padding-bottom: 16px; 
   }
 
   .tailwind-ac {
     margin-bottom: 32px;
+    
   }
 
   .btn {
@@ -169,9 +175,30 @@
   }
 
   .tailwind-trigger {
-    margin-bottom: 8px;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+  
+  .btn {
+    margin-right: auto;
+  }
+  .tailwind-ac {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+  }
+  .tailwind-panel {
+    text-align: right;
+    margin-top: auto;
+  }
+  
+.accordion-item {text-align:left;}
+
 }
+
 
 /* ------------Swiper--------------- */
 
@@ -202,7 +229,8 @@
 }
 .about-item {display: flex;
   justify-content: space-between; 
-  align-items: center;}
+  align-items: center;
+}
 
 .about-item-par {
   position: absolute;
