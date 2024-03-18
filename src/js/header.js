@@ -32,7 +32,7 @@ function initialize() {
 }
 
 function openModal() {
-  header.classList.add('animated-header');
+  header.classList.add('animated-header-open');
 
   setTimeout(() => {
     hideElem(refs.openModalBtn);
@@ -46,10 +46,10 @@ function openModal() {
     container.classList.add('modal-container');
 
     addHeaderBackground();
-  }, 750);
+  }, 500);
 
   setTimeout(() => {
-    header.classList.remove('animated-header');
+    header.classList.remove('animated-header-open');
   }, 1500);
 
   refs.closeModalBtn.addEventListener('click', onModalClose);
@@ -62,7 +62,7 @@ function onModalClose(e) {
 }
 
 function closeModal() {
-  header.classList.add('animated-header');
+  header.classList.add('animated-header-close');
 
   setTimeout(() => {
     showElem(refs.openModalBtn);
@@ -79,7 +79,7 @@ function closeModal() {
   }, 700);
 
   setTimeout(() => {
-    header.classList.remove('animated-header');
+    header.classList.remove('animated-header-close');
   }, 1500);
 
   refs.closeModalBtn.removeEventListener('click', onModalClose);
