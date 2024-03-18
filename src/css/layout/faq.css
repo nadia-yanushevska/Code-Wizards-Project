@@ -63,16 +63,14 @@
 }
 
 .answer-wrapper {
-  display: none;
-  max-height: 0;
+  height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  transition: height 0.3s ease-out;
 }
 
 .answer-wrapper.is-active {
-  display: block;
-  max-height: 1000px;
-  transition: max-height 0.5s ease-in;
+  height: auto;
+  transition: height 0.5s ease-in;
   margin-top: 16px;
 }
 .answer-text {
@@ -115,6 +113,9 @@
   }
   .faq-list-second {
     width: 50%;
+  }
+  .answer-wrapper.is-active {
+    margin-top: 27px;
   }
 
   .faq-list-first .faq-btn {

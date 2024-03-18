@@ -67,9 +67,16 @@ function renderFAQ() {
 
 renderFAQ();
 
-const faqBtn = document.querySelectorAll('.faq-btn');
+const faqBtns = document.querySelectorAll('.faq-btn');
+const answerWrappers = document.querySelectorAll('.answer-wrapper');
 
-faqBtn.forEach(trigger => {
+const initialHeights = [];
+answerWrappers.forEach((wrapper, index) => {
+  initialHeights[index] = wrapper.scrollHeight;
+  wrapper.style.height = '0';
+});
+
+faqBtns.forEach((trigger, index) => {
   trigger.addEventListener('click', event => {
     const iconArrowDown = event.currentTarget.querySelector('.icon-arrow-down');
     const iconArrowUp = event.currentTarget.querySelector('.icon-arrow-up');
@@ -77,13 +84,16 @@ faqBtn.forEach(trigger => {
       .closest('.faq-item')
       .querySelector('.answer-wrapper');
 
+    answerWrapper.classList.toggle('is-active');
+
     if (answerWrapper.classList.contains('is-active')) {
-      iconArrowDown.style.display = 'block';
-      iconArrowUp.style.display = 'none';
-    } else {
+      answerWrapper.style.height = `${initialHeights[index]}px`;
       iconArrowDown.style.display = 'none';
       iconArrowUp.style.display = 'block';
+    } else {
+      answerWrapper.style.height = '0';
+      iconArrowDown.style.display = 'block';
+      iconArrowUp.style.display = 'none';
     }
-    answerWrapper.classList.toggle('is-active');
   });
 });
