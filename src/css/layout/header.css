@@ -15,6 +15,7 @@ body {
 .header-background {
   background-image: url('../../img/hero/Glass-effect-mobile.png');
   background-size: cover;
+  height: 100vh;
 }
 
 @media screen and (min-resolution: 192dpi) and (max-width: 767.98px),
@@ -26,10 +27,13 @@ body {
 }
 
 .container {
-  padding: 32px 16px;
   position: relative;
 }
 
+.header-container {
+  padding: 32px 16px;
+  height: 100%;
+}
 /* Logo */
 .logo {
   display: flex;
@@ -66,7 +70,7 @@ body {
 /* Navigation */
 .nav-container {
   padding-bottom: 70px;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -167,21 +171,47 @@ body {
     padding: 8px;
   }
   .dropdown-menu {
-    display: block;
+    display: flex;
+    visibility: visible;
+    opacity: 1;
     position: absolute;
     top: 80px;
     right: 50%;
     transform: translateX(54%);
+
+    transition: opacity 0.5s ease-in;
+  }
+}
+
+/* Animation */
+.animated-header {
+  animation: moveOutIn 1.5s ease;
+}
+
+@keyframes moveOutIn {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: none;
   }
 }
 
 /* Special */
-.underline {
+.underline.menu-heading {
+  text-decoration: underline;
+}
+.underline a {
   text-decoration: underline;
 }
 
 .is-hidden {
-  display: none;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
 }
 
 .modal-container {
@@ -190,10 +220,4 @@ body {
 
 .scroll-block {
   overflow: hidden;
-}
-
-/* for hero section */
-.invisible {
-  visibility: hidden;
-  z-index: -1;
 }
