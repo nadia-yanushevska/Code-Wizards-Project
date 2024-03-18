@@ -1,7 +1,7 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
+import Swiper from 'swiper';
+import { Navigation } from 'swiper/modules';
 
 const accordionData = [
   {
@@ -30,123 +30,154 @@ const accordionData = [
   },
 ];
 
-const slidesData = [
-  'HTML/CSS',
-  'JavaScript',
-  'React',
-  'Node.js',
-  'React Native',
-  'Soft skills',
-];
+function createAccordionItem({ title, content }) {
+  const accordionItem = document.createElement('div');
+  accordionItem.classList.add('tailwind-ac');
 
+  const accordionTitle = createAccordionTitle(title);
+  accordionItem.appendChild(accordionTitle);
 
+  const accordionContent = createAccordionContent(content);
+  accordionItem.appendChild(accordionContent);
 
-document.addEventListener('DOMContentLoaded', function () {
-  const accordionContainer = document.querySelector('.accordion');
-  let activeIndex = 0;
-
-  accordionData.forEach(({ title, content }, index) => {
-    const accordionBtn = createBtn(title);
-    const accordionContent = createContent(content);
-
-    accordionBtn.addEventListener('click', () => {
-      accordionContent.classList.toggle('active');
-      const activeContent = accordionContainer.querySelector(
-        '.accordion-content.active'
-      );
-      if (activeContent && activeContent !== accordionContent) {
-        activeContent.classList.remove('active');
-      }
-    });
-
-    addItemToContainer(accordionContainer, accordionBtn, accordionContent);
-
-    if (index === activeIndex) {
-      accordionContent.classList.add('active');
-    }
-  });
-
-  const myAccordion = new Accordion('.accordion', {
-    duration: 400,
-    closeOthers: true,
-  });
-});
-
-function createBtn(title) {
-  const accordionBtn = document.createElement('button');
-  accordionBtn.classList.add('accordion-title');
-
-  const titleSpan = document.createElement('span');
-  titleSpan.textContent = title;
-  accordionBtn.appendChild(titleSpan);
-
-  const svgSpan = document.createElement('span');
-  svgSpan.classList.add('arrow-up');
-  svgSpan.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" fill="none"><path stroke="#FAFAFA" stroke-width="2" d="M10.5 6.25 6 1.75l-4.5 4.5"/></svg>
-  `;
-
-  accordionBtn.appendChild(svgSpan);
-  svgSpan.addEventListener('click', () => {
-    svgSpan.style.transform = 'rotate(180deg)';
-  });
-  return accordionBtn;
+  return accordionItem;
 }
 
-function createContent(content) {
+function createAccordionTitle(title) {
+  const accordionTitle = document.createElement('h3');
+  accordionTitle.classList.add('flex');
+
+  const accordionButton = document.createElement('button');
+  accordionButton.classList.add('tailwind-trigger');
+  accordionButton.textContent = title;
+
+  const svgSpan = createSvgSpan();
+  accordionButton.appendChild(svgSpan);
+
+  accordionTitle.appendChild(accordionButton);
+  return accordionTitle;
+}
+
+function createSvgSpan() {
+  const svgSpan = document.createElement('span');
+  svgSpan.classList.add('btn');
+  svgSpan.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" fill="none">
+      <path stroke="#FAFAFA" stroke-width="2" d="M10.5 6.25 6 1.75l-4.5 4.5"/>
+    </svg>
+  `;
+  return svgSpan;
+}
+
+function createAccordionContent(content) {
   const accordionContent = document.createElement('div');
-  accordionContent.classList.add('accordion-content');
+  accordionContent.classList.add('tailwind-panel');
 
   const contentList = document.createElement('ul');
-  content.forEach(contentItem => {
-    const li = document.createElement('li');
-    li.textContent = contentItem;
-    contentList.appendChild(li);
+  contentList.classList.add('p-2');
+  content.forEach(item => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('accordion-item');
+    listItem.textContent = item;
+    contentList.appendChild(listItem);
   });
 
   accordionContent.appendChild(contentList);
   return accordionContent;
 }
 
-function addItemToContainer(container, btn, content) {
-  container.appendChild(btn);
-  container.appendChild(content);
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const swiperWrapper = document.querySelector('.swiper-wrapper');
-  slidesData.forEach(slide => {
-    const slideElement = document.createElement('div');
-    slideElement.classList.add('swiper-slide');
-    slideElement.textContent = slide;
-    swiperWrapper.appendChild(slideElement);
+function initializeAccordions() {
+  const accordionContainer = document.querySelector(
+    '.tailwind-accordion-container'
+  );
+  accordionData.forEach(item => {
+    const accordionItem = createAccordionItem(item);
+    accordionContainer.appendChild(accordionItem);
   });
 
-  const swiperContainer = document.querySelector('.swiper');
-  const prevButton = document.createElement('button');
-  const nextButton = document.createElement('button');
+  document.addEventListener('click', function (event) {
+    if (event.target.closest('.tailwind-trigger')) {
+      const accordionButton = event.target.closest('.tailwind-trigger');
+      const svgSpan = accordionButton.querySelector('.btn');
+      svgSpan.classList.toggle('rotate');
+    }
+  });
 
-  prevButton.classList.add('swiper-button-prev');
-  nextButton.classList.add('swiper-button-next');
+  const firstSvgSpan = accordionContainer.querySelector('.btn');
+  firstSvgSpan.classList.add('rotate');
 
-  swiperContainer.appendChild(prevButton);
-  swiperContainer.appendChild(nextButton);
+  new Accordion('.tailwind-accordion-container', {
+    elementClass: 'tailwind-ac',
+    triggerClass: 'tailwind-trigger',
+    panelClass: 'tailwind-panel',
+    openOnInit: [0],
+  });
+}
 
-  const swiper = new Swiper('.swiper', {
-    direction: 'horizontal',
+//-------------Swiper--------------------
+
+function aboutRender(skills, query) {
+  const skillsMarkup = skills
+    .map(el => {
+      return `<li class="swiper-slide about-item"><p class="about-item-par">${el}</p></li>`;
+    })
+    .join('');
+
+  query.insertAdjacentHTML('beforeend', skillsMarkup);
+}
+
+function initializeSwiper() {
+  const aboutSwiperWrapper = document.querySelector('.about-swiper-wrapper');
+  const aboutSwiper = document.createElement('div');
+  aboutSwiper.classList.add('swiper', 'about-jefferson-swiper');
+  const swiperWrapper = document.createElement('ul');
+  swiperWrapper.classList.add('about-swiper-list', 'swiper-wrapper');
+
+  const slidesData = [
+    'HTML/CSS',
+    'JavaScript',
+    'React',
+    'Node.js',
+    'React Native',
+    'Soft skills',
+  ];
+
+  aboutRender(slidesData, swiperWrapper);
+
+  const nextBtn = document.createElement('div');
+  nextBtn.classList.add('next-button');
+  nextBtn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+      <path stroke="#3B3B3B" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.667 20h26.666M23.334 10l10 10-10 10"/>
+    </svg>
+  `;
+
+  aboutSwiper.appendChild(swiperWrapper);
+  aboutSwiper.appendChild(nextBtn);
+  aboutSwiperWrapper.appendChild(aboutSwiper);
+
+  const aboutSwiperInstance = new Swiper('.about-jefferson-swiper', {
+    speed: 400,
+    slidesPerView: 'auto',
     loop: true,
-
+    loopAddBlankSlides: true,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: 'next-button',
     },
-
+    modules: [Navigation],
     keyboard: {
       enabled: true,
     },
-
     mousewheel: true,
-
     touch: true,
   });
+
+  nextBtn.addEventListener('click', () => {
+    aboutSwiperInstance.slideNext();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  initializeAccordions();
+  initializeSwiper();
 });
