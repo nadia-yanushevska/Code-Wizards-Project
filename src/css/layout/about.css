@@ -185,12 +185,14 @@
   .btn {
     margin-left: auto;
   }
+
   .tailwind-ac {
     display: flex;
    flex-direction: column;
     align-items: flex-start;
     flex-wrap: wrap;
   }
+
   .tailwind-panel {
     text-align: right;
     margin-left: auto;
@@ -202,14 +204,11 @@
     text-align: left;
   }
 }
-
 /* ------------Swiper--------------- */
-
 .about-swiper-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  
 }
 
 .about-swiper-wrapper .swiper.about-jefferson-swiper {
@@ -260,12 +259,11 @@
   margin-right: 10px; 
 }
 
-
-
 @media only screen and (min-width: 768px) {
   .about-swiper-wrapper .swiper.about-jefferson-swiper {
     width: 600px;
   }
+
   .about-swiper-list .swiper-slide.about-item{  width: 200px;
     height: 200px;}
 
