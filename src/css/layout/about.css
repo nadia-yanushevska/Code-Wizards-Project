@@ -178,18 +178,24 @@
     align-items: center;
   }
 
+  .flex{
+    width: 100%;
+  }
+
   .btn {
-    margin-right: auto;
+    margin-left: auto;
   }
   .tailwind-ac {
     display: flex;
-    justify-content: space-between;
+   flex-direction: column;
     align-items: flex-start;
     flex-wrap: wrap;
   }
   .tailwind-panel {
     text-align: right;
-    margin-top: auto;
+    margin-left: auto;
+    width: 612px;
+    padding-right: 68px;
   }
 
   .accordion-item {
@@ -203,27 +209,33 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  
 }
 
-.about-jefferson-swiper {
-  width: 260px;
-  margin: 0;
+.about-swiper-wrapper .swiper.about-jefferson-swiper {
+  margin-top: 32px;
+  display: flex;
 }
 
-.about-swiper-list .swiper-slide.about-item {
-  border-radius: 100%;
-  border: 1 solid rgba(250, 250, 250, 0.2);
+.about-swiper-list .about-item.swiper-slide {
+  border-radius: 50%;
   height: 130px;
   width: 130px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .about-swiper-list .swiper-slide.swiper-slide-active {
   background-color: #ed3b44;
 }
 
-.about-swiper-list {
-  padding: 0;
+.about-jefferson-swiper .about-swiper-list.swiper-wrapper {
+  gap: 0;
+  margin-bottom: 0;
+  padding-right: 55px;
+  width: 260px;
 }
+
 .about-item {
   display: flex;
   justify-content: space-between;
@@ -243,21 +255,19 @@
 .next-button {
   width: 28px;
   height: 28px;
-  /* position: absolute; */
-  /* top: 50%; 
-  z-index: 2; 
-  transform: translateY(-50%); */
+  position: absolute;
+  right: 0; 
+  margin-right: 10px; 
 }
 
+
+
 @media only screen and (min-width: 768px) {
-  .about-jefferson-swiper {
+  .about-swiper-wrapper .swiper.about-jefferson-swiper {
     width: 600px;
   }
-
-  .about-item {
-    width: 200px;
-    height: 200px;
-  }
+  .about-swiper-list .swiper-slide.about-item{  width: 200px;
+    height: 200px;}
 
   .next-button {
     width: 40px;
@@ -270,7 +280,7 @@
 }
 
 @media only screen and (min-width: 1440px) {
-  .about-jefferson-swiper {
+  .about-swiper-wrapper .swiper.about-jefferson-swiper {
     width: 1200px;
   }
 }
