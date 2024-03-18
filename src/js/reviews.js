@@ -54,6 +54,9 @@ async function initSwiper() {
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 16,
+    edgeSwipeDetection: true,
+    freeMode: false,
+    loop: false,
     modules: [Navigation],
     navigation: {
       prevEl: ' .mySwiper .swiper-button-prev',
@@ -74,10 +77,6 @@ async function initSwiper() {
         slidesPerGroup: 1,
       },
     },
-    freeMode: false,
-    mousewheel: {
-      loop: false,
-    },
     mousewheel: {
       enabled: true,
       slidesPerGroup: 1,
@@ -89,9 +88,20 @@ async function initSwiper() {
 
     keyboard: {
       enable: true,
-      onlyInViewport: false,
+      onlyInViewport: true,
+      pageUpDown: true,
     },
-    edgeSwipeDetection: true,
+  });
+  console.log(swiper);
+  swiper.on('slideChange', function () {
+    if (swiper.isBeginning || swiper.isEnd) {
+      swiper.allowSlideNext = false;
+      swiper.allowTouchMove = false;
+      swiper.mousewheel.disable();
+      swiper.keyboard.disable();
+      console.log('КОНЕЦ');
+      console.log(allowSlideNext);
+    }
   });
 }
 initSwiper();
