@@ -8,6 +8,36 @@
     overflow: hidden;
   }
 
+  .swiper-button-prev.disabled,
+  .swiper-button-next.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .arrow {
+    display: flex;
+    padding: 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 52px;
+    height: 52px;
+
+    border-radius: 60px;
+    border: 1px solid rgba(250, 250, 250, 0.5);
+
+    fill: none;
+    stroke: #fafafa;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
   .projects-title {
     color: rgba(250, 250, 250, 0.4);
     font-family: 'Inter Tight';
@@ -24,11 +54,13 @@
   .white-background {
     background-color: #fafafa;
     padding: 32px;
+    width: 100%;
+    height: 395px;
   }
 
   .black-background {
     display: flex;
-    width: 343px;
+    width: 100%;
     height: 395px;
     padding: 100px 16px;
     flex-direction: column;
@@ -44,7 +76,8 @@
     align-items: center;
     gap: 10px;
     color: var(--black-color);
-
+    line-height: normal;
+    letter-spacing: -0.32px;
     border-radius: 60px;
     border: 1px solid rgba(28, 29, 32, 0.2);
   }
@@ -65,6 +98,18 @@
     padding-bottom: 32px;
 
     width: 279px;
+  }
+
+  @media only screen and (max-width: 374px) {
+    .projects-text {
+      max-width: 250px;
+    }
+    /* .white-background {
+      padding: 16px;
+    }
+    .my-skills-container {
+      padding-bottom: 75px;
+    } */
   }
   .project-button {
     display: inline-flex;
@@ -97,14 +142,51 @@
     align-items: center;
     flex-shrink: 0;
   }
+
+  .my-skills-container {
+    display: flex;
+    width: 279px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding-bottom: 96px;
+  }
 }
 
-.my-skills-container {
-  display: flex;
-  width: 279px;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 6px;
-  flex-wrap: wrap;
-  padding-bottom: 96px;
+@media only screen and (min-width: 768px) {
+  .white-background,
+  .black-background {
+    height: 625px;
+  }
+  .white-background {
+    padding: 64px;
+  }
+
+  .projects {
+    padding: 80px 32px;
+  }
+
+  .my-skills {
+    padding: 18px;
+  }
+  .my-skills-container {
+    width: 100%;
+    padding-bottom: 164px;
+  }
+
+  .projects-text {
+    line-height: 44px;
+    font-size: 44px;
+    width: 494px;
+  }
+
+  .project-button {
+    padding: 18px 50px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .box {
+    display: flex;
+  }
 }

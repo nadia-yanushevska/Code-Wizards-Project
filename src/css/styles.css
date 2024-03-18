@@ -9,15 +9,15 @@
 @import url('./base/common.css');
 @import url('./base/container.css');
 
-@import url('./layout/header.css');
+/* @import url('./layout/header.css');
 @import url('./layout/hero.css');
 @import url('./layout/about.css');
-@import url('./layout/benefits.css');
+@import url('./layout/benefits.css'); */
 @import url('./layout/projects.css');
-@import url('./layout/faq.css');
+/* @import url('./layout/faq.css');
 @import url('./layout/covers.css');
 @import url('./layout/reviews.css');
-@import url('./layout/work.css');
+@import url('./layout/work.css'); */
 
 :root {
   font-family: 'Inter Tight', sans-serif;
