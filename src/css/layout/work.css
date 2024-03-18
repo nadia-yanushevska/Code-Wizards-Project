@@ -221,6 +221,13 @@
   opacity: 100;
 }
 
+.footer-comment-input:not(:placeholder-shown):valid ~ .success {
+  opacity: 100;
+}
+.footer-comment-input:not(:placeholder-shown):invalid ~ .error-data {
+  opacity: 100;
+}
+
 .success {
   color: #3cbc81;
   font-family: 'Inter Tight';
@@ -234,6 +241,7 @@
   position: absolute;
   left: 0;
   top: 44px;
+  margin-top: 4px;
 }
 
 .error-data {
@@ -249,6 +257,7 @@
   position: absolute;
   left: 0;
   top: 44px;
+  margin-top: 4px;
 }
 
 #order {
