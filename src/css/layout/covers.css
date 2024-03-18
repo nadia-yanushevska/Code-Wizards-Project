@@ -1,70 +1,51 @@
 @media only screen and (min-width: 320px) {
-    .section-covers {
-        background-image: linear-gradient(var(--black-color), var(--red-color));
-        background-repeat: repeat;
-        overflow: hidden;
-        height: 508px;
-
-    }
-    .content {
-    position: relative;
-} 
-    .marquee__inner {
+  .section-covers {
+    background-image: linear-gradient(var(--black-color), var(--red-color));
+    background-repeat: repeat;
+    overflow: hidden;
+    height: 508px;
+  }
+  .wrapper-list {
     display: flex;
     transform: rotate(16deg);
     position: relative;
     top: -200px;
-}
+  }
 
-    .marquee__line {
-    flex-shrink: 0;
+  @keyframes marqueeLine {
+    from {
+      transform: translateX(-20%);
+    }
+
+    to {
+      transform: translateX(-180%);
+    }
+  }
+  .img-covers {
+    min-width: 282px;
+    height: 162px;
     margin-right: 30px;
     margin-bottom: 25px;
     display: flex;
     justify-content: center;
-    /* animation-name: marqueeLine;
-    animation-duration: 7s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite; */
-}
+  }
 
-    @keyframes marqueeLine {
-    from {
-        transform: translateX(-20%);
-    }
-
-    to {
-        transform: translateX(-180%);
-    }
-} 
-    .img-covers {
-        min-width: 282px;
-        height: 162px;
-    }
-}
-
-@media only screen and (min-width: 768px){
-    .section-covers {
-        height: 960px;
-    }
-    .img-covers {
-        min-width: 544px;
-        height: 314px;
-    }
-    .marquee__line {
-        margin-right: 40px;
-        margin-bottom: 50px;
-    }
-
-}
-
-.js-marquee__line {
+  .img-covers.animate {
     animation-name: marqueeLine;
-    animation-duration: 7s;
-    animation-timing-function:ease-in-out;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+  }
 }
 
-
-
-
+@media only screen and (min-width: 768px) {
+  .section-covers {
+    height: 960px;
+  }
+  .img-covers {
+    min-width: 544px;
+    height: 314px;
+    margin-right: 40px;
+    margin-bottom: 50px;
+  }
+}
