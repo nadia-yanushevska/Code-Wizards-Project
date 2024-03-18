@@ -26,10 +26,12 @@ body {
 }
 
 .container {
-  padding: 32px 16px;
   position: relative;
 }
 
+.header-container {
+  padding: 32px 16px;
+}
 /* Logo */
 .logo {
   display: flex;
@@ -176,7 +178,10 @@ body {
 }
 
 /* Special */
-.underline {
+.underline.menu-heading {
+  text-decoration: underline;
+}
+.underline a {
   text-decoration: underline;
 }
 

@@ -18,10 +18,14 @@ function initialize() {
   closeModal();
   if (window.innerWidth < 768) {
     hideTabletItems();
+    refs.linkList.classList.add('underline');
+
     menuHeadElem.removeEventListener('click', showMenu);
     refs.openModalBtn.addEventListener('click', openModal);
   } else {
     showTabletItems();
+    refs.linkList.classList.remove('underline');
+
     refs.openModalBtn.removeEventListener('click', openModal);
     menuHeadElem.addEventListener('click', showMenu);
   }
