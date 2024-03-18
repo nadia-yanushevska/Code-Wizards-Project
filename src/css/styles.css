@@ -16,7 +16,8 @@
 @import url('./layout/projects.css');
 @import url('./layout/faq.css');
 @import url('./layout/covers.css');
-
+@import url('./layout/reviews.css');
+@import url('./layout/work.css');
 
 :root {
   font-family: 'Inter Tight', sans-serif;
