@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Swiper from 'swiper';
+import { Navigation, Keyboard, Mousewheel } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -86,9 +87,10 @@ async function initSwiper() {
   );
 
   const swiper = new Swiper('.reviews .mySwiper', {
+    modules: [Navigation, Keyboard, Mousewheel],
     spaceBetween: 16,
-
-    loopAddBlankSlides: true,
+    pageUpDown: true,
+    mousewheel: true,
     navigation: {
       prevEl: btnPrev ? btnPrev : undefined,
       nextEl: btnNext ? btnNext : undefined,
@@ -104,6 +106,10 @@ async function initSwiper() {
       1440: {
         slidesPerView: 4,
       },
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true,
     },
   });
 }

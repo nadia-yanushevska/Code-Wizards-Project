@@ -2,6 +2,7 @@
   width: 100%;
   margin: 0 auto;
   padding-top: 64px;
+  padding-bottom: 64px;
   overflow-x: hidden;
 }
 .reviews-container {
@@ -46,15 +47,29 @@
 
   margin-bottom: 8px;
 }
+
 .review-text {
   height: 120px;
-  overflow: scroll;
+  overflow-y: scroll;
   color: rgba(250, 250, 250, 0.6);
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 150% */
+  line-height: 1.5;
   letter-spacing: -0.02em;
+}
+
+.review-text::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+.review-text::-webkit-scrollbar-track {
+  background: #1c1d20; /* color of the tracking area */
+}
+
+.review-text::-webkit-scrollbar-thumb {
+  background-color: #3b3b3b; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid #1c1d20; /* creates padding around scroll thumb */
 }
 
 .swiper-wrapper .swiper-slide {
