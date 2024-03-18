@@ -5,7 +5,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
 document.addEventListener("DOMContentLoaded", function () {
-  const mySwiper = new Swiper(".swiper", {
+  const mySwiper = new Swiper(".projects .swiper", {
     loop: false,
     navigation: {
       nextEl: ".swiper-button-next",
