@@ -1,6 +1,3 @@
-import Accordion from 'accordion-js';
-import 'accordion-js/dist/accordion.min.css';
-
 const arrFaq = [
   {
     question: 'What programming languages are most often used in your project?',
@@ -37,10 +34,9 @@ const arrFaq = [
 
 function createMarkup({ question, answer }) {
   return `<li class="faq-item">
-<div class="ac">
-    <div class="ac-wrapper">
-      <h3 class="ac-header">${question}</h3>
-      <button class="ac-trigger" type="button">
+    <div class="faq-container">
+      <h3 class="question-title">${question}</h3>
+      <button class="faq-btn" type="button" aria-label="Open item">
         <svg class="icon-arrow-down" width="20" height="20">
           <use href="./img/sprite.svg#icon-arrow-down"></use>
         </svg>
@@ -49,41 +45,45 @@ function createMarkup({ question, answer }) {
         </svg>
       </button>
     </div>
-    <div class="ac-panel">
-      <p class="ac-text">${answer}</p>
+    <div class="answer-wrapper">
+      <p class="answer-text">${answer}</p>
     </div>
-  </div>
   </li>`;
 }
 
 function renderFAQ() {
-  const faqList = document.querySelector('.accordion-container');
-  const faqMarkup = arrFaq.map(createMarkup).join('');
+  const faqListFirst = document.querySelector('.faq-list-first');
+  const faqListSecond = document.querySelector('.faq-list-second');
 
-  faqList.innerHTML = faqMarkup;
+  const firstHalf = arrFaq.slice(0, 3);
+  const secondHalf = arrFaq.slice(3);
+
+  const faqMarkupFirst = firstHalf.map(createMarkup).join('');
+  const faqMarkupSecond = secondHalf.map(createMarkup).join('');
+
+  faqListFirst.innerHTML = faqMarkupFirst;
+  faqListSecond.innerHTML = faqMarkupSecond;
 }
 
 renderFAQ();
 
-const acTriggers = document.querySelectorAll('.ac-trigger');
+const faqBtn = document.querySelectorAll('.faq-btn');
 
-acTriggers.forEach(trigger => {
+faqBtn.forEach(trigger => {
   trigger.addEventListener('click', event => {
     const iconArrowDown = event.currentTarget.querySelector('.icon-arrow-down');
     const iconArrowUp = event.currentTarget.querySelector('.icon-arrow-up');
-    const acPanel = event.currentTarget
-      .closest('.ac')
-      .querySelector('.ac-panel');
+    const answerWrapper = event.currentTarget
+      .closest('.faq-item')
+      .querySelector('.answer-wrapper');
 
-    if (acPanel.classList.contains('is-active')) {
+    if (answerWrapper.classList.contains('is-active')) {
       iconArrowDown.style.display = 'block';
       iconArrowUp.style.display = 'none';
     } else {
       iconArrowDown.style.display = 'none';
       iconArrowUp.style.display = 'block';
     }
-    acPanel.classList.toggle('is-active');
+    answerWrapper.classList.toggle('is-active');
   });
 });
-
-const accordion = new Accordion('.accordion-container');
