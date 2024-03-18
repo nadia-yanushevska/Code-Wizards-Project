@@ -116,6 +116,9 @@
   .faq-list-second {
     width: 50%;
   }
+  .answer-wrapper.is-active {
+    margin-top: 27px;
+  }
 
   .faq-list-first .faq-btn {
     margin-right: 32px;
