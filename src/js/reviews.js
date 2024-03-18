@@ -2,8 +2,6 @@ import axios from 'axios';
 import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Navigation } from 'swiper/modules';
 
 const listEl = document.querySelector('.reviews-list');
 
@@ -35,7 +33,9 @@ async function renderReviews() {
           <img src="${review.avatar_url}" alt="Avatar" class="avatar" width="48" height="48">
           <div class = "reviews-data">
           <h3 class="name">${review.author}</h3>
-        <p class="review-text">${review.review}</p></div></div>
+        <div class="review-text">${review.review}</div>
+        </div>
+      </div>
       </li>
     `
       )
@@ -46,62 +46,66 @@ async function renderReviews() {
   }
 }
 
+// async function initSwiper() {
+//   await renderReviews();
+
+//   let swiper = new Swiper('.mySwiper', {
+//     slidesPerView: 1,
+//     modules: [Navigation],
+//     navigation: {
+//       prevEl: ' .mySwiper .swiper-button-prev',
+//       nextEl: '.mySwiper .swiper-button-next',
+//     },
+//     breakpoints: {
+//       768: {
+//         slidesPerView: 2,
+//       },
+//       1440: {
+//         slidesPerView: 4,
+//       },
+//     },
+//     mousewheel: {
+//       loop: false,
+//     },
+
+//     keyboard: {
+//       enabled: true,
+//       onlyInViewport: false,
+//     },
+//     loop: false,
+//   });
+// }
+
 async function initSwiper() {
   await renderReviews();
+  let btnPrev = document.querySelector(
+    '.reviews .mySwiper .swiper-button-prev'
+  );
+  let btnNext = document.querySelector(
+    '.reviews .mySwiper .swiper-button-next'
+  );
 
-  const swiper = new Swiper('.mySwiper', {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    slidesPerGroup: 1,
+  const swiper = new Swiper('.reviews .mySwiper', {
     spaceBetween: 16,
-    edgeSwipeDetection: true,
-    freeMode: false,
-    loop: false,
-    modules: [Navigation],
-    navigation: {
-      prevEl: ' .mySwiper .swiper-button-prev',
-      nextEl: '.mySwiper .swiper-button-next',
-    },
 
-    allowTouchMove: {
-      enable: true,
-      slidesPerGroup: 1,
+    loopAddBlankSlides: true,
+    navigation: {
+      prevEl: btnPrev ? btnPrev : undefined,
+      nextEl: btnNext ? btnNext : undefined,
     },
+    allowTouchMove: true,
     breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
       768: {
         slidesPerView: 2,
-        slidesPerGroup: 1,
       },
       1440: {
         slidesPerView: 4,
-        slidesPerGroup: 1,
       },
     },
-    mousewheel: {
-      enabled: true,
-      slidesPerGroup: 1,
-    },
-    touch: {
-      enable: true,
-      slidesPerGroup: 1,
-    },
-
-    keyboard: {
-      enable: true,
-      onlyInViewport: true,
-      pageUpDown: true,
-    },
-  });
-  console.log(swiper);
-  swiper.on('slideChange', function () {
-    if (swiper.isBeginning || swiper.isEnd) {
-      swiper.allowSlideNext = false;
-      swiper.allowTouchMove = false;
-      swiper.mousewheel.disable();
-      swiper.keyboard.disable();
-      console.log('КОНЕЦ');
-      console.log(allowSlideNext);
-    }
   });
 }
+
 initSwiper();
