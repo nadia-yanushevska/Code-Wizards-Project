@@ -212,20 +212,19 @@
     padding: 0 32px;
     padding-bottom: 96px;
   }
-}
+  .my-skills {
+    padding: 18px;
+  }
+  .my-skills-container {
+    width: 100%;
+    padding-bottom: 164px;
+  }
 
-.my-skills {
-  padding: 18px;
-}
-.my-skills-container {
-  width: 100%;
-  padding-bottom: 164px;
-}
-
-.projects-text {
-  line-height: 44px;
-  font-size: 44px;
-  width: 494px;
+  .projects-text {
+    line-height: 44px;
+    font-size: 44px;
+    width: 494px;
+  }
 }
 
 .project-button {
