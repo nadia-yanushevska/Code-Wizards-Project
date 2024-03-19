@@ -206,6 +206,7 @@
   }
   .white-background {
     padding: 64px;
+    height: 566px;
   }
 
   .projects {
@@ -219,7 +220,9 @@
     width: 100%;
     padding-bottom: 164px;
   }
-
+  .project-button {
+    padding: 18px 50px;
+  }
   .projects-text {
     line-height: 44px;
     font-size: 44px;
@@ -227,9 +230,6 @@
   }
 }
 
-.project-button {
-  padding: 18px 50px;
-}
 @media only screen and (min-width: 1440px) {
   .box {
     display: flex;
@@ -242,5 +242,15 @@
 
   .projects {
     padding: 0 32px 164px;
+  }
+
+  .white-background,
+  .black-background {
+    height: 625px;
+    width: 688px;
+  }
+
+  .my-skills-container {
+    padding-bottom: 223px;
   }
 }
