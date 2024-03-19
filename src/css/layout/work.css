@@ -4,13 +4,13 @@
 
 @media screen and (min-width: 768px) {
   .footer-container {
-    padding: 80px 32px 169px;
+    padding: 85px 32px 169px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .footer-container {
-    padding: 80px 196px 169px;
+    padding: 85px 196px 169px;
   }
 }
 
@@ -59,7 +59,7 @@
   font-size: 40px;
   font-weight: 500;
   line-height: 40px;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
   font-style: normal;
 }
