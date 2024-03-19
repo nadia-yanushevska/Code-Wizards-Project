@@ -209,7 +209,9 @@
   }
 
   .projects {
-    padding: 80px 32px;
+    padding: 0 32px;
+    padding-bottom: 80px;
+  }
   }
 
   .my-skills {
