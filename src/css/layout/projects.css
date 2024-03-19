@@ -243,4 +243,10 @@
   .projects {
     padding: 0 32px 164px;
   }
+
+  .white-background,
+  .black-background {
+    height: 625px;
+    width: 688px;
+  }
 }
