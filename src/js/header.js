@@ -1,13 +1,13 @@
-const header = document.querySelector('[js-elem="header"]');
-const container = header.querySelector(`[js-elem = 'header-container']`);
-const menuHeadElem = document.querySelector('[js-elem="menu-btn"]');
+const header = document.querySelector('[data-js-elem="header"]');
+const container = header.querySelector(`[data-js-elem = 'header-container']`);
+const menuHeadElem = document.querySelector('[data-js-elem="menu-btn"]');
 
 const refs = {
-  openModalBtn: container.querySelector(`[js-elem="open-btn"]`),
-  closeModalBtn: container.querySelector(`[js-elem="close-btn"]`),
-  logo: container.querySelector(`[js-elem="logo"]`),
-  nav: container.querySelector(`[js-elem="nav"]`),
-  linkList: container.querySelector(`[js-elem="modal-links"]`),
+  openModalBtn: container.querySelector(`[data-js-elem="open-btn"]`),
+  closeModalBtn: container.querySelector(`[data-js-elem="close-btn"]`),
+  logo: container.querySelector(`[data-js-elem="logo"]`),
+  nav: container.querySelector(`[data-js-elem="nav"]`),
+  linkList: container.querySelector(`[data-js-elem="modal-links"]`),
 };
 
 initialize();

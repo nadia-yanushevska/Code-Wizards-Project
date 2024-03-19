@@ -59,24 +59,22 @@
 
 .flex {
   margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .tailwind-trigger {
   background-color: inherit;
   color: rgba(250, 250, 250, 0.4);
   text-transform: uppercase;
-  padding-bottom: 12px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: -0.02rem;
   text-align: left;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
+  justify-content: space-between;
+  font-weight: 600;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.02em;
+padding: 0;
+align-items: flex-start;
 }
 
 .tailwind-ac {
@@ -105,7 +103,7 @@
   overflow: hidden;
   transition-timing-function: ease;
   padding-left: 0;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 }
 
 .accordion-item {
@@ -113,10 +111,7 @@
   letter-spacing: -0.02em;
   transition: none;
   color: var(--white-color);
-}
-
-.accordion-item:not(:last-child) {
-  padding-bottom: 32px;
+    padding-bottom: 32px;
 }
 
 .tailwind-accordion-container {
@@ -147,15 +142,25 @@
     margin-bottom: 8px;
   }
 
-  .accordion-item:not(:last-child) {
+  .accordion-item {
     padding-bottom: 16px;
-  }
+  } 
 
   .btn {
     padding: 10px;
     width: 40px;
     height: 40px;
   }
+
+  .tailwind-trigger {
+margin-right: auto;
+font-size: 16px;
+padding: 0;
+align-items: flex-start;}
+
+.tailwind-panel {
+  margin-bottom: 32px;
+}
 }
 
 @media only screen and (min-width: 1440px) {
@@ -166,6 +171,7 @@
 
   .description-about-me {
     width: 1440px;
+    justify-content: flex-start;
   }
 
   .tailwind-accordion-container {
@@ -187,6 +193,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: 600;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.02em;
+padding: 0;
+align-items: flex-start;
   }
 
   .flex {
@@ -208,13 +220,16 @@
     text-align: right;
     margin-left: auto;
     width: 612px;
-    padding-right: 68px;
+    margin-right: 68px;
+    margin-bottom: 24px;
   }
 
   .accordion-item {
     text-align: left;
+    padding-bottom: 32px;
   }
 }
+
 /* ------------Swiper--------------- */
 .about-swiper-wrapper {
   display: flex;
@@ -226,6 +241,9 @@
 .about-swiper-wrapper .swiper.about-jefferson-swiper {
   display: flex;
   position: initial;
+  margin-left: 0px;
+  margin-top: -5px;
+
 }
 
 .about-swiper-list .about-item.swiper-slide {
@@ -233,7 +251,6 @@
   height: 130px;
   width: 130px;
   box-sizing: border-box;
-  /* overflow: hidden; */
 }
 
 .about-swiper-list .swiper-slide.swiper-slide-active {
@@ -266,14 +283,15 @@
   width: 28px;
   height: 28px;
   position: absolute;
-  right: 0;
-  top: 40%;
-  margin-right: -5px;
+  right: 10px;
+  top: 33%;
 }
 
 @media only screen and (min-width: 768px) {
   .about-swiper-wrapper .swiper.about-jefferson-swiper {
     width: 600px;
+    margin-left: 0px;
+    margin-top: -32px;
   }
 
   .about-swiper-list .swiper-slide.about-item {
@@ -284,6 +302,7 @@
   .next-button {
     width: 40px;
     height: 40px;
+    top: 30%;
   }
 
   .about-item-par {
@@ -294,5 +313,12 @@
 @media only screen and (min-width: 1440px) {
   .about-swiper-wrapper .swiper.about-jefferson-swiper {
     width: 1200px;
+    margin-left: 32px;
+    margin-top: -22px;
+    
   }
+ .next-button {
+  top: 33%;
+  right: 30px;
+ }
 }
