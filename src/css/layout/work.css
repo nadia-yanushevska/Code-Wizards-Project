@@ -329,15 +329,6 @@ body.modal-open {
   width: 279px;
 }
 
-@media screen and (min-width: 768px) {
-  .modal-content-h2 {
-    width: 364px;
-  }
-  .modal-content-p {
-    width: 364px;
-  }
-}
-
 .modal-content-p {
   font-family: var(--font-family);
   font-weight: 500;
@@ -347,6 +338,15 @@ body.modal-open {
   text-align: center;
   color: rgba(250, 250, 250, 0.6);
   width: 279px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content-h2 {
+    width: 364px;
+  }
+  .modal-content-p {
+    width: 364px;
+  }
 }
 
 .close {
