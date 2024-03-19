@@ -1,5 +1,5 @@
-import './js/header';
-import './js/hero';
+import './js/header.js';
+import './js/hero.js';
 import './js/about';
 import './js/benefits';
 import './js/projects';
