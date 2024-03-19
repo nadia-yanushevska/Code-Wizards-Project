@@ -1,6 +1,7 @@
 @media only screen and (min-width: 320px) {
   .projects {
     padding: 30px 16px;
+    margin-bottom: 64px;
   }
 
   .projects .swiper-wrapper .swiper-slide {
@@ -15,6 +16,9 @@
   .swiper-button-next.disabled {
     pointer-events: none;
     opacity: 0.5;
+  }
+  .projects .swiper-backface-hidden .swiper-slide {
+    border: none;
   }
 
   .projects .swiper-button-prev,
