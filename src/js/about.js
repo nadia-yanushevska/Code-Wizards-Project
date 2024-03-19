@@ -1,7 +1,7 @@
 import Accordion from 'accordion-js';
 import 'accordion-js/dist/accordion.min.css';
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Keyboard, Mousewheel } from 'swiper/modules';
 
 const accordionData = [
   {
@@ -9,7 +9,7 @@ const accordionData = [
     content: [
       'I am Lloyd Jefferson, a talented programmer with extensive expertise in software development. I have an understanding of different programming languages and technologies, always ready to improve my skills. I always follow the latest trends and look for unconventional, creative solutions to problems. I have a high level of analytical skills and am able to effectively solve even the most difficult tasks encountered on the way.',
 
-      'Able to work both independently and in a team. I can effectively cooperate with colleagues, exchanging ideas and finding optimal solutions. Professional maturity allows you to calmly cope with challenges and stressful situations, while maintaining a high quality of work. I am always looking for opportunities for self',
+      'Able to work both independently and in a team. I can effectively cooperate with colleagues, exchanging ideas and finding optimal solutions. Professional maturity allows you to calmly cope with challenges and stressful situations, while maintaining a high quality of work. I am always looking for opportunities for self-improvement. I actively study new technologies and practices to stay abreast of the latest innovations. I have a strong understanding of various programming languages, frameworks and architectural concepts that allow me to create efficient and scalable software.',
     ],
   },
   {
@@ -140,6 +140,7 @@ function initializeSwiper() {
     'Node.js',
     'React Native',
     'Soft skills',
+    'Angular',
   ];
 
   aboutRender(slidesData, swiperWrapper);
@@ -157,6 +158,7 @@ function initializeSwiper() {
   aboutSwiperWrapper.appendChild(aboutSwiper);
 
   const aboutSwiperInstance = new Swiper('.about-jefferson-swiper', {
+    modules: [Navigation, Keyboard, Mousewheel],
     speed: 400,
     slidesPerView: 'auto',
     loop: true,
@@ -164,7 +166,6 @@ function initializeSwiper() {
     navigation: {
       nextEl: 'next-button',
     },
-    modules: [Navigation],
     keyboard: {
       enabled: true,
     },
