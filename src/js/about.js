@@ -62,9 +62,7 @@ function createSvgSpan() {
   const svgSpan = document.createElement('span');
   svgSpan.classList.add('btn');
   svgSpan.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" fill="none">
-      <path stroke="#FAFAFA" stroke-width="2" d="M10.5 6.25 6 1.75l-4.5 4.5"/>
-    </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path stroke="#FAFAFA" stroke-width="2" d="m15 7.5-5 5-5-5"/></svg>
   `;
   return svgSpan;
 }
