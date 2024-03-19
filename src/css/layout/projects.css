@@ -32,8 +32,8 @@
     right: 0;
     bottom: 0;
     margin: 0;
-    width: 68px;
-    height: 68px;
+    width: 52px;
+    height: 52px;
   }
 
   .arrow-icon {
@@ -150,6 +150,12 @@
     .my-skills-container {
       padding-bottom: 75px;
     } */
+  }
+
+  .projects .swiper-button-prev,
+  .projects .swiper-button-next {
+    width: 68px;
+    height: 68px;
   }
   .project-button {
     display: inline-flex;
