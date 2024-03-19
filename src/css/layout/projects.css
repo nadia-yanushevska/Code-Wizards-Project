@@ -239,4 +239,8 @@
     margin-top: 64px;
     gap: 20px;
   }
+
+  .projects {
+    padding: 0 32px 164px;
+  }
 }
