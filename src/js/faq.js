@@ -87,12 +87,6 @@ function initializeListeners() {
   const faqBtn = document.querySelectorAll('.faq-btn');
   const answerWrappers = document.querySelectorAll('.answer-wrapper');
 
-  const initialHeights = [];
-  answerWrappers.forEach((wrapper, index) => {
-    initialHeights[index] = wrapper.scrollHeight;
-    wrapper.style.height = '0';
-  });
-
   faqBtn.forEach((trigger, index) => {
     trigger.addEventListener('click', event => {
       const iconArrowDown =
@@ -101,15 +95,16 @@ function initializeListeners() {
       const answerWrapper = event.currentTarget
         .closest('.faq-item')
         .querySelector('.answer-wrapper');
+      const faqItem = event.currentTarget.closest('.faq-item');
 
       answerWrapper.classList.toggle('is-active');
 
       if (answerWrapper.classList.contains('is-active')) {
-        answerWrapper.style.height = `${initialHeights[index]}px`;
+        faqItem.classList.add('active-faq-item');
         iconArrowDown.style.display = 'none';
         iconArrowUp.style.display = 'block';
       } else {
-        answerWrapper.style.height = '0';
+        faqItem.classList.remove('active-faq-item');
         iconArrowDown.style.display = 'block';
         iconArrowUp.style.display = 'none';
       }
