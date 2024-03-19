@@ -11,13 +11,15 @@
   overflow: hidden;
 }
 
-.about-jefferson {
+/* .about-jefferson {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .jefferson-container {
+  max-width: 375px;
+  margin: auto;
   padding: 64px 16px;
 }
 
@@ -26,7 +28,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 32px;
   gap: 16px;
 }
 
@@ -58,24 +59,22 @@
 
 .flex {
   margin-bottom: 12px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .tailwind-trigger {
   background-color: inherit;
   color: rgba(250, 250, 250, 0.4);
   text-transform: uppercase;
-  padding-bottom: 12px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: -0.02rem;
   text-align: left;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
+  justify-content: space-between;
+  font-weight: 600;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.02em;
+padding: 0;
+align-items: flex-start;
 }
 
 .tailwind-ac {
@@ -104,7 +103,7 @@
   overflow: hidden;
   transition-timing-function: ease;
   padding-left: 0;
-  margin-bottom: 32px;
+  margin-bottom: 4px;
 }
 
 .accordion-item {
@@ -112,28 +111,20 @@
   letter-spacing: -0.02em;
   transition: none;
   color: var(--white-color);
+    padding-bottom: 32px;
 }
 
-.accordion-item:not(:last-child) {
-  padding-bottom: 10px;
+.tailwind-accordion-container {
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 @media only screen and (min-width: 768px) {
   .jefferson-container {
-    padding: 64px 32px;
+    min-width: 768px;
+    padding: 64px 32px 96px 32px;
   }
-  .description-about-me {
-    margin-bottom: 64px;
-  }
-}
 
-@media only screen and (min-width: 1140px) {
-  .description-about-me {
-    margin-bottom: 96px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
   .text-content {
     font-size: 38px;
     line-height: 1.05;
@@ -142,26 +133,52 @@
     padding: 64px;
   }
 
+  .tailwind-accordion-container {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
   .flex {
     margin-bottom: 8px;
   }
 
-  .tailwind-trigger {
+  .accordion-item {
     padding-bottom: 16px;
-  }
-
-  .tailwind-ac {
-    margin-bottom: 32px;
-  }
+  } 
 
   .btn {
     padding: 10px;
     width: 40px;
     height: 40px;
   }
+
+  .tailwind-trigger {
+margin-right: auto;
+font-size: 16px;
+padding: 0;
+align-items: flex-start;}
+
+.tailwind-panel {
+  margin-bottom: 32px;
+}
 }
 
 @media only screen and (min-width: 1440px) {
+  .jefferson-container {
+    min-width: 1440px;
+    padding: 96px 32px 164px 32px;
+  }
+
+  .description-about-me {
+    width: 1376px;
+    justify-content: flex-start;
+  }
+
+  .tailwind-accordion-container {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
   .text-content {
     width: 680px;
   }
@@ -176,45 +193,57 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: 600;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.02em;
+padding: 0;
+align-items: flex-start;
   }
 
-  .flex{
+  .flex {
     width: 100%;
   }
 
   .btn {
     margin-left: auto;
   }
+
   .tailwind-ac {
     display: flex;
-   flex-direction: column;
+    flex-direction: column;
     align-items: flex-start;
     flex-wrap: wrap;
   }
+
   .tailwind-panel {
     text-align: right;
     margin-left: auto;
     width: 612px;
-    padding-right: 68px;
+    margin-right: 68px;
+    margin-bottom: 24px;
   }
 
   .accordion-item {
     text-align: left;
+    padding-bottom: 32px;
   }
 }
 
 /* ------------Swiper--------------- */
-
 .about-swiper-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  
+  position: relative;
 }
 
 .about-swiper-wrapper .swiper.about-jefferson-swiper {
-  margin-top: 32px;
   display: flex;
+  position: initial;
+  margin-left: 0px;
+  margin-top: -5px;
+
 }
 
 .about-swiper-list .about-item.swiper-slide {
@@ -222,7 +251,6 @@
   height: 130px;
   width: 130px;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .about-swiper-list .swiper-slide.swiper-slide-active {
@@ -231,8 +259,7 @@
 
 .about-jefferson-swiper .about-swiper-list.swiper-wrapper {
   gap: 0;
-  margin-bottom: 0;
-  padding-right: 55px;
+  margin-left: 0;
   width: 260px;
 }
 
@@ -256,22 +283,26 @@
   width: 28px;
   height: 28px;
   position: absolute;
-  right: 0; 
-  margin-right: 10px; 
+  right: 10px;
+  top: 33%;
 }
-
-
 
 @media only screen and (min-width: 768px) {
   .about-swiper-wrapper .swiper.about-jefferson-swiper {
     width: 600px;
+    margin-left: 0px;
+    margin-top: -32px;
   }
-  .about-swiper-list .swiper-slide.about-item{  width: 200px;
-    height: 200px;}
+
+  .about-swiper-list .swiper-slide.about-item {
+    width: 200px;
+    height: 200px;
+  }
 
   .next-button {
     width: 40px;
     height: 40px;
+    top: 30%;
   }
 
   .about-item-par {
@@ -282,5 +313,12 @@
 @media only screen and (min-width: 1440px) {
   .about-swiper-wrapper .swiper.about-jefferson-swiper {
     width: 1200px;
+    margin-left: 32px;
+    margin-top: -22px;
+    
   }
+ .next-button {
+  top: 33%;
+  right: 30px;
+ }
 }

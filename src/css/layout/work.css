@@ -4,13 +4,13 @@
 
 @media screen and (min-width: 768px) {
   .footer-container {
-    padding: 80px 32px 169px;
+    padding: 85px 32px 169px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .footer-container {
-    padding: 80px 196px 169px;
+    padding: 85px 196px 169px;
   }
 }
 
@@ -18,10 +18,11 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 63px;
+  margin-bottom: 66px;
 }
 .footer-header-block {
   display: inline-flex;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -42,6 +43,7 @@
   width: 44px;
   height: 44px;
   margin-right: 8px;
+  margin-bottom: 4px;
 }
 
 @media screen and (min-width: 768px) {
@@ -49,13 +51,14 @@
     width: 70px;
     height: 70px;
     margin-right: 20px;
+    margin-bottom: 7px;
   }
 }
 
 .footer-header {
   font-size: 40px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 40px;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   font-style: normal;
@@ -64,7 +67,7 @@
 @media screen and (min-width: 768px) {
   .footer-header {
     font-size: 64px;
-    /* margin-bottom: 18px; */
+    line-height: 64px;
   }
 }
 
@@ -73,7 +76,7 @@
 }
 
 .footer-work-form {
-  margin-bottom: 62px;
+  margin-bottom: 70px;
   display: flex;
   flex-direction: column;
 }
@@ -84,7 +87,7 @@
     column-gap: 32px;
     align-items: center;
 
-    margin-bottom: 18px;
+    margin-bottom: 35px;
   }
 }
 
@@ -181,13 +184,19 @@
 
   font-size: 14px;
   line-height: normal;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   transition: all ease-in-out 250ms;
 }
 
 .footer-address-list-item:hover,
 .footer-address-list-item:focus {
   border-color: #fafafa;
+}
+
+@media screen and (max-width: 374px) {
+  .footer-address-list {
+    row-gap: 20px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -263,37 +272,84 @@
 #order {
   position: relative;
 }
-/* The Modal (background) */
+
+body.modal-open {
+  overflow: hidden;
+}
+
 #modalContent {
-  display: none; /* Hidden by default */
-  position: absolute; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: absolute;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   background-color: rgba(15, 15, 16, 0.6);
 }
 
-/* Modal Content/Box */
 .modal-content {
+  z-index: 2;
   position: absolute; /* Stay in place */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid rgba(250, 250, 250, 0.1);
   border-radius: 20px;
-  padding: 64px;
-  width: 492px;
-  height: 246px;
-  background: var(--background);
-  /* margin: 50% auto; */
+  padding: 20px;
+  width: 343px;
+  background-color: var(--black-color);
 }
 
-/* The Close Button */
+@media screen and (min-width: 768px) {
+  .modal-content {
+    padding: 20px;
+    width: 492px;
+  }
+}
+
+.modal-text {
+  padding: 44px 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-text {
+    padding: 44px;
+  }
+}
+
+.modal-content-h2 {
+  padding-bottom: 16px;
+  font-family: var(--font-family);
+  font-size: 20px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-align: center;
+  width: 279px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content-h2 {
+    width: 364px;
+  }
+  .modal-content-p {
+    width: 364px;
+  }
+}
+
+.modal-content-p {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: rgba(250, 250, 250, 0.6);
+  width: 279px;
+}
+
 .close {
-  color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -307,5 +363,14 @@
 }
 
 .close-svg {
-  fill: #fff;
+  stroke: #fff;
+  width: 22px;
+  height: 22px;
+}
+
+@media screen and (min-width: 768px) {
+  .close-svg {
+    width: 24px;
+    height: 24px;
+  }
 }

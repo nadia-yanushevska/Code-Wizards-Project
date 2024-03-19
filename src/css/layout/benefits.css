@@ -14,7 +14,7 @@
      color: #FAFAFA66;
      font-size: 16px;
      text-align: left;
-
+     text-transform: uppercase;
      margin-bottom: 32px;
      max-width: 284px;
  }
@@ -37,7 +37,7 @@
 
 
  .svg-benefits {
-     margin-bottom: 64px;
+     margin-bottom: 58px;
      background-color: var(--red-color);
      border-radius: 10px;
      padding: 12px;
@@ -55,7 +55,12 @@
 
  .text-benefits {
      color: #FAFAFA99;
-
+     font-family: Inter Tight;
+     font-size: 16px;
+     font-weight: 500;
+     line-height: 24px;
+     letter-spacing: -0.02em;
+     text-align: left;
 
  }
 
@@ -68,7 +73,7 @@
      gap: 8px;
  }
 
- .wfawef {
+ .container-btn-benefits {
      display: flex;
      height: 55px;
  }
@@ -109,6 +114,10 @@
          padding-right: 32px;
      }
 
+     .menu-benefits {
+         margin-bottom: 64px;
+     }
+
      .item-benefits {
          width: calc((100% - 16px) / 2);
      }
@@ -121,7 +130,7 @@
  /* =========== DESKTOP SECTION BENEFITS======= */
  @media screen and (min-width: 1440px) {
      .section-benefits {
-         padding-bottom: 120px;
+         padding-bottom: 164px;
      }
 
      .container-benefits {
@@ -139,7 +148,7 @@
 
      .menu-benefits {
          width: 680px;
-         margin-bottom: 64px;
+
      }
  }
 

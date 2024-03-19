@@ -1,13 +1,13 @@
-const header = document.querySelector('[js-elem="header"]');
-const container = header.querySelector(`[js-elem = 'header-container']`);
-const menuHeadElem = document.querySelector('[js-elem="menu-btn"]');
+const header = document.querySelector('[data-js-elem="header"]');
+const container = header.querySelector(`[data-js-elem = 'header-container']`);
+const menuHeadElem = document.querySelector('[data-js-elem="menu-btn"]');
 
 const refs = {
-  openModalBtn: container.querySelector(`[js-elem="open-btn"]`),
-  closeModalBtn: container.querySelector(`[js-elem="close-btn"]`),
-  logo: container.querySelector(`[js-elem="logo"]`),
-  nav: container.querySelector(`[js-elem="nav"]`),
-  linkList: container.querySelector(`[js-elem="modal-links"]`),
+  openModalBtn: container.querySelector(`[data-js-elem="open-btn"]`),
+  closeModalBtn: container.querySelector(`[data-js-elem="close-btn"]`),
+  logo: container.querySelector(`[data-js-elem="logo"]`),
+  nav: container.querySelector(`[data-js-elem="nav"]`),
+  linkList: container.querySelector(`[data-js-elem="modal-links"]`),
 };
 
 initialize();
@@ -32,7 +32,7 @@ function initialize() {
 }
 
 function openModal() {
-  header.classList.add('animated-header');
+  header.classList.add('animated-header-open');
 
   setTimeout(() => {
     hideElem(refs.openModalBtn);
@@ -46,10 +46,10 @@ function openModal() {
     container.classList.add('modal-container');
 
     addHeaderBackground();
-  }, 750);
+  }, 500);
 
   setTimeout(() => {
-    header.classList.remove('animated-header');
+    header.classList.remove('animated-header-open');
   }, 1500);
 
   refs.closeModalBtn.addEventListener('click', onModalClose);
@@ -62,7 +62,7 @@ function onModalClose(e) {
 }
 
 function closeModal() {
-  header.classList.add('animated-header');
+  header.classList.add('animated-header-close');
 
   setTimeout(() => {
     showElem(refs.openModalBtn);
@@ -79,7 +79,7 @@ function closeModal() {
   }, 700);
 
   setTimeout(() => {
-    header.classList.remove('animated-header');
+    header.classList.remove('animated-header-close');
   }, 1500);
 
   refs.closeModalBtn.removeEventListener('click', onModalClose);

@@ -1,3 +1,5 @@
+import iconArrow from '../img/sprite.svg';
+
 const arrFaq = [
   {
     question: 'What programming languages are most often used in your project?',
@@ -38,10 +40,10 @@ function createMarkup({ question, answer }) {
       <h3 class="question-title">${question}</h3>
       <button class="faq-btn" type="button" aria-label="Open item">
         <svg class="icon-arrow-down" width="20" height="20">
-          <use href="./img/sprite.svg#icon-arrow-down"></use>
+          <use href="${iconArrow}#icon-arrow-down"></use>
         </svg>
         <svg class="icon-arrow-up" width="20" height="20">
-          <use href="./img/sprite.svg#icon-arrow-up"></use>
+          <use href="${iconArrow}#icon-arrow-up"></use>
         </svg>
       </button>
     </div>
@@ -52,48 +54,66 @@ function createMarkup({ question, answer }) {
 }
 
 function renderFAQ() {
-  const faqListFirst = document.querySelector('.faq-list-first');
-  const faqListSecond = document.querySelector('.faq-list-second');
+  const faqList = document.querySelector('.faq-list');
 
-  const firstHalf = arrFaq.slice(0, 3);
-  const secondHalf = arrFaq.slice(3);
+  const halfIndex = Math.ceil(arrFaq.length / 2);
 
-  const faqMarkupFirst = firstHalf.map(createMarkup).join('');
-  const faqMarkupSecond = secondHalf.map(createMarkup).join('');
+  const firstHalf = arrFaq.slice(0, halfIndex);
+  const secondHalf = arrFaq.slice(halfIndex);
 
-  faqListFirst.innerHTML = faqMarkupFirst;
-  faqListSecond.innerHTML = faqMarkupSecond;
+  let arrToRender = arrFaq;
+
+  if (window.matchMedia('(min-width: 1280px)').matches) {
+    const arrNew = [];
+
+    firstHalf.forEach((elem, index, arr) => {
+      arrNew.push(arr[index]);
+      if (index < secondHalf.length) {
+        arrNew.push(secondHalf[index]);
+      }
+    });
+
+    arrToRender = arrNew;
+  }
+
+  const faqMarkup = arrToRender.map(createMarkup).join('');
+
+  faqList.innerHTML = faqMarkup;
+
+  initializeListeners();
 }
 
-renderFAQ();
+function initializeListeners() {
+  const faqBtn = document.querySelectorAll('.faq-btn');
+  const answerWrappers = document.querySelectorAll('.answer-wrapper');
 
-const faqBtns = document.querySelectorAll('.faq-btn');
-const answerWrappers = document.querySelectorAll('.answer-wrapper');
+  faqBtn.forEach((trigger, index) => {
+    trigger.addEventListener('click', event => {
+      const iconArrowDown =
+        event.currentTarget.querySelector('.icon-arrow-down');
+      const iconArrowUp = event.currentTarget.querySelector('.icon-arrow-up');
+      const answerWrapper = event.currentTarget
+        .closest('.faq-item')
+        .querySelector('.answer-wrapper');
+      const faqItem = event.currentTarget.closest('.faq-item');
 
-const initialHeights = [];
-answerWrappers.forEach((wrapper, index) => {
-  initialHeights[index] = wrapper.scrollHeight;
-  wrapper.style.height = '0';
-});
+      answerWrapper.classList.toggle('is-active');
 
-faqBtns.forEach((trigger, index) => {
-  trigger.addEventListener('click', event => {
-    const iconArrowDown = event.currentTarget.querySelector('.icon-arrow-down');
-    const iconArrowUp = event.currentTarget.querySelector('.icon-arrow-up');
-    const answerWrapper = event.currentTarget
-      .closest('.faq-item')
-      .querySelector('.answer-wrapper');
-
-    answerWrapper.classList.toggle('is-active');
-
-    if (answerWrapper.classList.contains('is-active')) {
-      answerWrapper.style.height = `${initialHeights[index]}px`;
-      iconArrowDown.style.display = 'none';
-      iconArrowUp.style.display = 'block';
-    } else {
-      answerWrapper.style.height = '0';
-      iconArrowDown.style.display = 'block';
-      iconArrowUp.style.display = 'none';
-    }
+      if (answerWrapper.classList.contains('is-active')) {
+        faqItem.classList.add('active-faq-item');
+        iconArrowDown.style.display = 'none';
+        iconArrowUp.style.display = 'block';
+      } else {
+        faqItem.classList.remove('active-faq-item');
+        iconArrowDown.style.display = 'block';
+        iconArrowUp.style.display = 'none';
+      }
+    });
   });
-});
+}
+
+initializeListeners();
+
+window.addEventListener('resize', renderFAQ);
+
+renderFAQ();

@@ -1,10 +1,11 @@
 /* #region FAQ */
 .faq {
-  padding: 0px;
+  padding-bottom: 64px;
 }
-.container {
+.faq .container {
   padding: 0 16px;
 }
+
 .faq-title {
   font-weight: 600;
   font-size: 16px;
@@ -15,8 +16,6 @@
 }
 .faq-list-first .faq-item:last-child {
   border-bottom: none;
-}
-.faq-list-second {
 }
 .faq-item {
   border-top: 1px solid rgba(250, 250, 250, 0.2);
@@ -85,58 +84,74 @@
 /* #endregion */
 
 @media only screen and (min-width: 768px) {
-  .container {
+  .faq .container {
     padding: 0 32px;
+  }
+  .faq {
+    padding-bottom: 96px;
   }
 
   .question-title {
     max-width: 574px;
   }
-  .faq-list-second .faq-item:last-child .question-title {
-    max-width: 485px;
-  }
   .faq-item {
     padding: 32px 0 32px;
   }
-
+  .faq-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .active-faq-item {
+    padding: 32px 0 24px;
+  }
+  .faq-item:first-child .answer-wrapper.is-active {
+    padding-bottom: 24px;
+  }
+  .faq-item:nth-child(6) .question-title {
+    max-width: 465px;
+  }
   .answer-text {
     max-width: 656px;
   }
 }
 
-@media only screen and (min-width: 1280px) {
-  .faq-wrapper {
+@media only screen and (min-width: 1440px) {
+  .faq {
+    padding-bottom: 164px;
+  }
+  .faq-list {
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
   }
-  .faq-list-first {
-    width: 50%;
+  .faq-item:first-child .answer-wrapper.is-active {
+    padding-bottom: 0px;
   }
-  .faq-list-second {
-    width: 50%;
+  .faq-item:nth-child(odd) .active-faq-item {
+    padding: 32px 0px 26px 0;
   }
-  .answer-wrapper.is-active {
-    margin-top: 27px;
-  }
-
-  .faq-list-first .faq-btn {
-    margin-right: 32px;
-  }
-  .faq-list-first .faq-item {
-    border-right: 1px solid rgba(250, 250, 250, 0.2);
-  }
-  .faq-list-first .faq-item:last-child {
+  .faq-item:nth-child(5) {
     border-bottom: 1px solid rgba(250, 250, 250, 0.2);
   }
-  .faq-list-second .question-title {
+  .faq-item:nth-child(2) .answer-wrapper.is-active {
+    margin-top: 11px;
+  }
+  .faq-item:nth-child(odd) {
+    border-right: 1px solid rgba(250, 250, 250, 0.2);
+  }
+  .faq-item:nth-child(odd) .answer-wrapper {
+    margin-right: 30px;
+  }
+  .faq-item:nth-child(odd) .faq-btn {
+    margin-right: 30px;
+  }
+  .faq-item:nth-child(even) .answer-text {
     margin-left: 32px;
   }
-  .faq-list-second .faq-item {
-    border-left: 1px solid rgba(250, 250, 250, 0.2);
-  }
-  .faq-list-second .faq-item:last-child {
-    padding: 19px 0;
-  }
-  .faq-list-second .faq-item .answer-text {
+  .faq-item:nth-child(even) .question-title {
     margin-left: 32px;
+  }
+  .faq-item:nth-child(6) .answer-wrapper.is-active {
+    margin-top: 26px;
   }
 }
