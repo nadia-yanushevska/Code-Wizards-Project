@@ -187,7 +187,7 @@
 
 @media screen and (min-resolution: 192dpi) and (min-width: 375px),
   screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 2dppx) {
+  screen and (min-resolution: 2ddpx) {
   .section-hero {
     background-image: url('../../img/hero/Glass-effect-mobile@2x.png');
   }
@@ -195,7 +195,7 @@
 
 @media screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 2dppx) {
+  screen and (min-resolution: 2ddpx) {
   .section-hero {
     background-image: url('../../img/hero/Glass-effect-tablet@2x.png');
   }
@@ -203,7 +203,7 @@
 
 @media screen and (min-resolution: 192dpi) and (min-width: 1440px),
   screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 2dppx) {
+  screen and (min-resolution: 2ddpx) {
   .section-hero {
     background-image: url('../../img/hero/Glass-effect-desktop@2x.png');
   }
