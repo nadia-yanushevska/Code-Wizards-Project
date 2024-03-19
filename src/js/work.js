@@ -4,7 +4,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const END_POINT = "/requests";
 
-
 axios.defaults.baseURL = 'https://portfolio-js.b.goit.study/api';
 
 const form = document.querySelector('.footer-work-form');
@@ -26,21 +25,17 @@ async function onFormSubmit(e) {
        showMessage(emptyMsg)
         return;
     }
-    const userMsg = { email, comment }
 
+    const userMsg = { email, comment }
+    
     try {
         const res = await addMessage(userMsg)
-
         modal.style.display = "block";
         body.classList.add('modal-open');
-
-        console.log(res); 
         e.target.reset()
     } catch (error) {
-        console.log(error);
      showMessage(wrongData)
     }
-    
 }
 
 function showMessage(message) {
