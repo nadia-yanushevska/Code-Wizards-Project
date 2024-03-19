@@ -31,7 +31,7 @@ async function renderReviews() {
         
       <li class="reviews-slide swiper-slide">
         <div class="author">
-          <img src="${review.avatar_url}" alt="Avatar" class="avatar" width="48" height="48">
+          <img src="${review.avatar_url}" loading="lazy" alt="Avatar" class="avatar" width="48" height="48">
           <div class = "reviews-data">
           <h3 class="name">${review.author}</h3>
         <div class="review-text">${review.review}</div>
