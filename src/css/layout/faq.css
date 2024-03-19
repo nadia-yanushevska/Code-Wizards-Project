@@ -136,7 +136,7 @@
   .faq-item:nth-child(odd) {
     border-right: 1px solid rgba(250, 250, 250, 0.2);
   }
-  .faq-item:nth-child(odd) .answer-wrapper.is-active {
+  .faq-item:nth-child(odd) .answer-wrapper {
     margin-right: 30px;
   }
   .faq-item:nth-child(odd) .faq-btn {
