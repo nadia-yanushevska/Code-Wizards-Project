@@ -1,3 +1,5 @@
+import iconArrow from '../img/sprite.svg';
+
 const arrFaq = [
   {
     question: 'What programming languages are most often used in your project?',
@@ -38,10 +40,10 @@ function createMarkup({ question, answer }) {
       <h3 class="question-title">${question}</h3>
       <button class="faq-btn" type="button" aria-label="Open item">
         <svg class="icon-arrow-down" width="20" height="20">
-          <use href="./img/sprite.svg#icon-arrow-down"></use>
+          <use href="${iconArrow}#icon-arrow-down"></use>
         </svg>
         <svg class="icon-arrow-up" width="20" height="20">
-          <use href="./img/sprite.svg#icon-arrow-up"></use>
+          <use href="${iconArrow}#icon-arrow-up"></use>
         </svg>
       </button>
     </div>
