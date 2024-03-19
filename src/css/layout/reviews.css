@@ -108,22 +108,18 @@
 }
 
 .reviews .swiper-button-next {
-  width: 68px;
-  height: 68px;
+  width: 52px;
+  height: 52px;
 }
 .reviews .swiper-button-prev {
   rotate: 180deg;
-  width: 68px;
-  height: 68px;
+  width: 52px;
+  height: 52px;
 }
-.reviews .icon-leftbtn {
-  width: 32px;
-  height: 32px;
-  fill: #fafafa;
-}
+.reviews .icon-leftbtn,
 .reviews .icon-rghtbtn {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   fill: #fafafa;
 }
 
@@ -143,5 +139,21 @@
   .reviews {
     padding-top: 164px;
     padding-bottom: 164px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reviews .swiper-button-next,
+  .reviews .swiper-button-prev {
+    width: 68px;
+    height: 68px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .reviews .icon-leftbtn,
+  .reviews .icon-rghtbtn {
+    width: 32px;
+    height: 32px;
+    fill: #fafafa;
   }
 }
