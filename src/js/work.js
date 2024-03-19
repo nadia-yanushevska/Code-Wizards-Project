@@ -34,7 +34,6 @@ async function onFormSubmit(e) {
         modal.style.display = "block";
         body.classList.add('modal-open');
 
-        // Тут в res.data приходить  {title, message} яке потрібне в модальне вікно вставити
         console.log(res); 
         e.target.reset()
     } catch (error) {
