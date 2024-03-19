@@ -15,6 +15,7 @@
 .container-main-text {
   padding-top: 281px;
   padding-bottom: 212px;
+  padding-right: 14px;
 }
 
 .main-text {
@@ -119,6 +120,7 @@
     padding-top: 300px;
     padding-bottom: 187px;
     margin-right: 104px;
+    padding-right: 0;
   }
 
   .main-text {
