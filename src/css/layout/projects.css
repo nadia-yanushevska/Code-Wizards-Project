@@ -234,4 +234,9 @@
   .box {
     display: flex;
   }
+
+  .navigation {
+    margin-top: 64px;
+    gap: 20px;
+  }
 }
