@@ -1,6 +1,6 @@
 @media only screen and (min-width: 320px) {
   .projects {
-    padding: 30px 16px 64px;
+    padding: 0 16px 64px;
   }
 
   .projects .swiper-wrapper .swiper-slide {
@@ -200,6 +200,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .projects .container {
+    max-width: 768px;
+  }
   .white-background,
   .black-background {
     height: 625px;
@@ -228,11 +231,17 @@
     font-size: 44px;
     width: 494px;
   }
+
+  .navigation {
+    margin-top: 64px;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
   .box {
+    padding-bottom: 0;
     display: flex;
+    overflow: hidden;
   }
 
   .navigation {
@@ -252,5 +261,9 @@
 
   .my-skills-container {
     padding-bottom: 223px;
+  }
+
+  .projects .container {
+    max-width: 1440px;
   }
 }
