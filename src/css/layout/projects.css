@@ -152,11 +152,6 @@
     } */
   }
 
-  .projects .swiper-button-prev,
-  .projects .swiper-button-next {
-    width: 68px;
-    height: 68px;
-  }
   .project-button {
     display: inline-flex;
     padding: 13px 32px;
@@ -216,6 +211,12 @@
   .white-background {
     padding: 64px;
     height: 566px;
+  }
+
+  .projects .swiper-button-prev,
+  .projects .swiper-button-next {
+    width: 68px;
+    height: 68px;
   }
 
   .projects {
