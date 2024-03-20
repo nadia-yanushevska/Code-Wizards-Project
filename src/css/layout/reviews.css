@@ -112,7 +112,7 @@
   height: 52px;
 }
 .reviews .swiper-button-prev {
-  rotate: 180deg;
+  transform: rotate(180deg);
   width: 52px;
   height: 52px;
 }

@@ -20,7 +20,7 @@ body {
 
 @media screen and (min-resolution: 192dpi) and (max-width: 767.98px),
   screen and (min-device-pixel-ratio: 2),
-  screen and (min-resolution: 2ddpx) {
+  screen and (min-resolution: 2dppx) {
   .header-background {
     background-image: url('../../img/hero/Glass-effect-mobile@2x.png');
   }
@@ -164,7 +164,6 @@ body {
   }
   .order-link {
     height: 55px;
-    letter-spacing: 1;
     font-size: 16px;
   }
   .menu-heading:first-of-type {
